@@ -3,7 +3,6 @@
 A React Native bridge module for interacting with Apple Healthkit's data and Health Records data.
 
 ## Health Records version
-This version only retrieves health record information from Apple Healthkit [Health Records](https://developer.apple.com/documentation/healthkit/samples/accessing_health_records?language=objc).  
 
 Simply request permission of the corresponding Health Record data you need from the list:  
 `"Allergies", "ClinicalVitals", "Conditions", "Immunizations", "Labs", "Medications", "Procedures"`.  
