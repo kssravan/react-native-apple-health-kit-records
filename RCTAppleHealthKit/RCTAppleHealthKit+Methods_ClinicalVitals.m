@@ -19,7 +19,6 @@
                    limit:HKObjectQueryNoLimit
                           completion:^(NSArray *results, NSError *error) {
                               if(results){
-                                  callback()
                                   callback(@[[NSNull null], results]);
                                   return;
                               } else {
