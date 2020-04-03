@@ -66,10 +66,26 @@
                                    limit:(NSUInteger)lim
                                    completion:(void (^)(NSArray *, NSError *))completion;
 
+- (void)fetchMenstruationFlowSamples:(NSPredicate *)predicate
+                           ascending:(BOOL)asc
+                               limit:(NSUInteger)lim
+                          completion:(void (^)(NSArray *, NSError *))completion;
+
+- (void)fetchSexualActivitySamples:(NSPredicate *)predicate
+                         ascending:(BOOL)asc
+                             limit:(NSUInteger)lim
+                        completion:(void (^)(NSArray *, NSError *))completion;
+
+- (void)fetchOvulationTestResultSamples:(NSPredicate *)predicate
+                              ascending:(BOOL)asc
+                                  limit:(NSUInteger)lim
+                             completion:(void (^)(NSArray *, NSError *))completion;
+
 - (void)fetchHealthRecordData:(HKClinicalType *)clinicalType
                     predicate:(NSPredicate *)predicate
                     ascending:(BOOL)asc
                         limit:(NSUInteger)lim
                    completion:(void (^)(NSArray *, NSError *))completion;
+
 
 @end

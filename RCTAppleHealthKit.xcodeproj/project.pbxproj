@@ -21,6 +21,7 @@
 		64C42D4A1D351A8800A0A8F7 /* RCTAppleHealthKit+Methods_Vitals.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C42D491D351A8800A0A8F7 /* RCTAppleHealthKit+Methods_Vitals.m */; };
 		64E0E73F1D37947B00EAB905 /* RCTAppleHealthKit+Methods_Results.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E0E73E1D37947B00EAB905 /* RCTAppleHealthKit+Methods_Results.m */; };
 		846A98EA215244E7000C3E5D /* RCTAppleHealthKit+Methods_Dietary.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A98E9215244E6000C3E5D /* RCTAppleHealthKit+Methods_Dietary.m */; };
+		A01C33002437096D008F60B6 /* RCTAppleHealthKit+Methods_ReproductiveHealth.m in Sources */ = {isa = PBXBuildFile; fileRef = A01C32FF2437096C008F60B6 /* RCTAppleHealthKit+Methods_ReproductiveHealth.m */; };
 		A09396E12432642F00276C21 /* RCTAppleHealthKit+Methods_Allergy.m in Sources */ = {isa = PBXBuildFile; fileRef = A09396E02432642F00276C21 /* RCTAppleHealthKit+Methods_Allergy.m */; };
 		A09396E42432644200276C21 /* RCTAppleHealthKit+Methods_ClinicalVitals.m in Sources */ = {isa = PBXBuildFile; fileRef = A09396E32432644200276C21 /* RCTAppleHealthKit+Methods_ClinicalVitals.m */; };
 		A09396E72432645200276C21 /* RCTAppleHealthKit+Methods_Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = A09396E52432645200276C21 /* RCTAppleHealthKit+Methods_Condition.m */; };
@@ -73,6 +74,8 @@
 		64E0E73E1D37947B00EAB905 /* RCTAppleHealthKit+Methods_Results.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+Methods_Results.m"; sourceTree = "<group>"; };
 		846A98E8215244E6000C3E5D /* RCTAppleHealthKit+Methods_Dietary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTAppleHealthKit+Methods_Dietary.h"; sourceTree = "<group>"; };
 		846A98E9215244E6000C3E5D /* RCTAppleHealthKit+Methods_Dietary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+Methods_Dietary.m"; sourceTree = "<group>"; };
+		A01C32FE2437096C008F60B6 /* RCTAppleHealthKit+Methods_ReproductiveHealth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTAppleHealthKit+Methods_ReproductiveHealth.h"; sourceTree = "<group>"; };
+		A01C32FF2437096C008F60B6 /* RCTAppleHealthKit+Methods_ReproductiveHealth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+Methods_ReproductiveHealth.m"; sourceTree = "<group>"; };
 		A09396DF2432642F00276C21 /* RCTAppleHealthKit+Methods_Allergy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTAppleHealthKit+Methods_Allergy.h"; sourceTree = "<group>"; };
 		A09396E02432642F00276C21 /* RCTAppleHealthKit+Methods_Allergy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+Methods_Allergy.m"; sourceTree = "<group>"; };
 		A09396E22432644200276C21 /* RCTAppleHealthKit+Methods_ClinicalVitals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTAppleHealthKit+Methods_ClinicalVitals.h"; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 				377D44F21D247D0A004E35CB /* RCTAppleHealthKit+Methods_Characteristic.m */,
 				37837E7B1DCFE270000201A0 /* RCTAppleHealthKit+Methods_Sleep.h */,
 				37837E7C1DCFE270000201A0 /* RCTAppleHealthKit+Methods_Sleep.m */,
+				A01C32FE2437096C008F60B6 /* RCTAppleHealthKit+Methods_ReproductiveHealth.h */,
+				A01C32FF2437096C008F60B6 /* RCTAppleHealthKit+Methods_ReproductiveHealth.m */,
 			);
 			path = RCTAppleHealthKit;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 				A09396EA2432646B00276C21 /* RCTAppleHealthKit+Methods_Immunization.m in Sources */,
 				3774C8931D2092F20000B3F3 /* RCTAppleHealthKit.m in Sources */,
 				377D44F31D247D0A004E35CB /* RCTAppleHealthKit+Methods_Characteristic.m in Sources */,
+				A01C33002437096D008F60B6 /* RCTAppleHealthKit+Methods_ReproductiveHealth.m in Sources */,
 				3774C89E1D2095850000B3F3 /* RCTAppleHealthKit+TypesAndPermissions.m in Sources */,
 				A09396EF2432647C00276C21 /* RCTAppleHealthKit+Methods_Lab.m in Sources */,
 				A09396F02432647C00276C21 /* RCTAppleHealthKit+Methods_Medication.m in Sources */,
