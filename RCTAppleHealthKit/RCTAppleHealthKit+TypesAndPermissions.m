@@ -15,6 +15,9 @@
 
 
 - (nullable HKObjectType *)getReadPermFromText:(nonnull NSString*)key {
+    
+    NSLog(@"paramter key is",key);
+    
     UIDevice *deviceInfo = [UIDevice currentDevice];
     float systemVersion = deviceInfo.systemVersion.floatValue;
 
@@ -182,11 +185,11 @@
     if ([@"BasalBodyTemperature" isEqualToString: key] && systemVersion >= 10.0) {
         return [HKObjectType quantityTypeForIdentifier: HKQuantityTypeIdentifierBasalBodyTemperature];
     } else if ([@"MenstruationFlow" isEqualToString: key]){
-        return [HKObjectType quantityTypeForIdentifier: HKCategoryTypeIdentifierMenstrualFlow];
+        return [HKObjectType categoryTypeForIdentifier: HKCategoryTypeIdentifierMenstrualFlow];
     } else if ([@"OvulationTestResult" isEqualToString: key]){
-        return [HKObjectType quantityTypeForIdentifier: HKCategoryTypeIdentifierOvulationTestResult];
+        return [HKObjectType categoryTypeForIdentifier: HKCategoryTypeIdentifierOvulationTestResult];
     } else if ([@"SexualActivity" isEqualToString: key]){
-        return [HKObjectType quantityTypeForIdentifier: HKCategoryTypeIdentifierSexualActivity];
+        return [HKObjectType categoryTypeForIdentifier: HKCategoryTypeIdentifierSexualActivity];
     } 
 
     //Health kit records
@@ -340,11 +343,11 @@
     if ([@"BasalBodyTemperature" isEqualToString: key] && systemVersion >= 10.0) {
         return [HKObjectType quantityTypeForIdentifier: HKQuantityTypeIdentifierBasalBodyTemperature];
     } else if ([@"MenstruationFlow" isEqualToString: key]){
-        return [HKObjectType quantityTypeForIdentifier: HKCategoryTypeIdentifierMenstrualFlow];
+        return [HKObjectType categoryTypeForIdentifier: HKCategoryTypeIdentifierMenstrualFlow];
     } else if ([@"OvulationTestResult" isEqualToString: key]){
-        return [HKObjectType quantityTypeForIdentifier: HKCategoryTypeIdentifierOvulationTestResult];
+        return [HKObjectType categoryTypeForIdentifier: HKCategoryTypeIdentifierOvulationTestResult];
     } else if ([@"SexualActivity" isEqualToString: key]){
-        return [HKObjectType quantityTypeForIdentifier: HKCategoryTypeIdentifierSexualActivity];
+        return [HKObjectType categoryTypeForIdentifier: HKCategoryTypeIdentifierSexualActivity];
     } 
 
     //Health kit records
