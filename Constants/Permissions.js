@@ -5,6 +5,7 @@
  */
 export const Permissions = {
   ActiveEnergyBurned: "ActiveEnergyBurned",
+  BasalBodyTemperature: 'BasalBodyTemperature',
   AppleExerciseTime: "AppleExerciseTime",
   BasalEnergyBurned: "BasalEnergyBurned",
   BiologicalSex: "BiologicalSex",
