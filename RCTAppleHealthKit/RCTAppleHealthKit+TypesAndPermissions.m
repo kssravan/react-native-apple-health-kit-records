@@ -192,6 +192,14 @@
         return [HKObjectType categoryTypeForIdentifier: HKCategoryTypeIdentifierSexualActivity];
     } 
 
+    //Heart Rate
+    if ([@"HeartRateVariability" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRateVariabilitySDNN];
+    }
+    else if ([@"RestingHeartRate" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierRestingHeartRate];
+    }
+
     //Health kit records
 
     if ([@"Allergies" isEqualToString: key] && systemVersion >= 10.0) {

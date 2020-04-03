@@ -295,6 +295,16 @@ RCT_EXPORT_METHOD(getSexualActivitySamples:(NSDictionary *)input callback:(RCTRe
     [self reproductiveHealth_getSexualActivitySamples:input callback:callback];
 }
 
+RCT_EXPORT_METHOD(getRestingHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self vitals_getRestingHeartRateSamples:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getHeartRateVariabilitySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self vitals_getHeartRateVariabilitySamples:input callback:callback];
+}
+
 
 
 RCT_EXPORT_METHOD(getAllergyRecords:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
