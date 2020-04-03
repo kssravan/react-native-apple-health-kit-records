@@ -3,7 +3,7 @@
 #import "RCTAppleHealthKit+Queries.h"
 #import "RCTAppleHealthKit+Utils.h"
 
-@implementation RCTAppleHealthKit (Methods_Sleep)
+@implementation RCTAppleHealthKit (Methods_ReproductiveHealth)
 
 - (void)reproductiveHealth_getBasalBodyTemperatureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
 {

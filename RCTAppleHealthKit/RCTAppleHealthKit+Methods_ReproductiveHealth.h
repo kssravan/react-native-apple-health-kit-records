@@ -1,7 +1,7 @@
 
 #import "RCTAppleHealthKit.h"
 
-@interface RCTAppleHealthKit (Methods_Vitals)
+@interface RCTAppleHealthKit (Methods_ReproductiveHealth)
 
 - (void)reproductiveHealth_getBasalBodyTemperatureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)reproductiveHealth_getMenstruationFlowSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
