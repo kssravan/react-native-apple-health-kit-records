@@ -10,7 +10,15 @@ export const Permissions = {
   WheelChair: "WheelChair",
   FitzpatrickSkinType: "FitzpatrickSkinType",
   BloodType: "BloodType",
-  
+
+  //Body measurements
+  Weight: "Weight",
+  Height: "Height",
+  BodyMassIndex: "BodyMassIndex",
+  BodyFatPercentage: "BodyFatPercentage",
+  LeanBodyMass: "LeanBodyMass",
+  WaistCircumference:"WaistCircumference",
+
   ActiveEnergyBurned: "ActiveEnergyBurned",
   BasalBodyTemperature: 'BasalBodyTemperature',
   MenstruationFlow: 'MenstruationFlow',
@@ -21,9 +29,7 @@ export const Permissions = {
   BloodGlucose: "BloodGlucose",
   BloodPressureDiastolic: "BloodPressureDiastolic",
   BloodPressureSystolic: "BloodPressureSystolic",
-  BodyFatPercentage: "BodyFatPercentage",
-  BodyMass: "BodyMass",
-  BodyMassIndex: "BodyMassIndex",
+
   BodyTemperature: "BodyTemperature",
   Biotin: "Biotin",
   Caffeine: "Caffeine",
@@ -70,15 +76,12 @@ export const Permissions = {
   HeartRate: "HeartRate",
   RestingHeartRate: "RestingHeartRate",
   HeartRateVariability:"HeartRateVariability",
-  Height: "Height",
-  LeanBodyMass: "LeanBodyMass",
   MindfulSession: "MindfulSession",
   NikeFuel: "NikeFuel",
   RespiratoryRate: "RespiratoryRate",
   SleepAnalysis: "SleepAnalysis",
   StepCount: "StepCount",
   Steps: "Steps",
-  Weight: "Weight",
   Workout: "Workout",
   ActiveEnergyBurned: "ActiveEnergyBurned",
   Allergies: "Allergies",

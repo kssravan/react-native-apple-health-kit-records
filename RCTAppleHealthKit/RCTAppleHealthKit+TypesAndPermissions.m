@@ -45,9 +45,13 @@
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyFatPercentage];
     }else if ([@"BodyMassIndex" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMassIndex];
-    }else if ([@"LeanBodyMass" isEqualToString: key]) {
+    }  else if ([@"LeanBodyMass" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierLeanBodyMass];
+    } else if ([@"WaistCircumference" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierWaistCircumference];
     }
+
+    
     
     // Fitness Identifiers
     if ([@"Steps" isEqualToString: key]) {
