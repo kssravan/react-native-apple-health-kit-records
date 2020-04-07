@@ -80,10 +80,10 @@
 
 - (void)characteristic_getFitzpatrickSkinType:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
     NSError *error;
-    HKFitzpatrickSkinType * skinType = [self.healthStore fitzpatrickSkinTypeWithError:&error];
+    HKFitzpatrickSkinTypeObject * hkFitzpatrickSkinTypeObject = [self.healthStore fitzpatrickSkinTypeWithError:&error];
     NSString *value;
 
-    switch (skinType.HKFitzpatrickSkinType) {
+    switch (hkFitzpatrickSkinTypeObject.skinType) {
         case HKFitzpatrickSkinTypeNotSet:
             value = @"Either the user’s skin type is not set, or the user has not granted your app permission to read the skin type.";
             break;
@@ -122,10 +122,10 @@
 
 - (void)characteristic_getBloodType:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
     NSError *error;
-    HKBloodType * bloodType = [self.healthStore bloodTypeWithError:&error];
+    HKBloodTypeObject * bloodTypeObject = [self.healthStore bloodTypeWithError:&error];
     NSString *value;
 
-    switch (bloodType.HKFitzpatrickSkinType) {
+    switch (bloodTypeObject.bloodType) {
         case HKBloodTypeNotSet:
             value = @"Unknown";
             break;
@@ -169,38 +169,40 @@
 
 - (void)characteristic_getWheelChairUse:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
     NSError *error;
-    HKWheelchairUse * wheelChairUse = [self.healthStore wheelchairUseWithError:&error];
     NSString *value;
 
-    switch (wheelChairUse) {
-            HKWheelchairUseNotSet = 0,
-            HKWheelchairUseNo,
-            HKWheelchairUseYes,
+    if (@available(iOS 10.0, *)) {
+        HKWheelchairUseObject * wheelChairUseObject = [self.healthStore wheelchairUseWithError:&error];
+        switch (wheelChairUseObject.wheelchairUse) {
+               
+            case HKWheelchairUseNotSet:
+                value = @"Unknown";
+                break;
+            case HKWheelchairUseNo:
+                value = @"No";
+                break;
+            case HKWheelchairUseYes:
+                value = @"Yes";
+                break;
+        }
 
-            
-        case HKWheelchairUseNotSet:
-            value = @"Unknown";
-            break;
-        case HKWheelchairUseNo:
-            value = @"No;
-            break;
-        case HKWheelchairUseYes:
-            value = @"Yes;
-            break;
+        if(value == nil){
+            callback(@[RCTJSErrorFromNSError(error)]);
+            return;
+        }
+
+        NSDictionary *response = @{
+                @"value" : value,
+        };
+
+        callback(@[[NSNull null], response]);
+        
+    } else {
+        callback(@[RCTMakeError(@"Not available for this ios version", nil, nil)]);
     }
+    
 
-    if(value == nil){
-        callback(@[RCTJSErrorFromNSError(error)]);
-        return;
-    }
-
-    NSDictionary *response = @{
-            @"value" : value,
-    };
-
-    callback(@[[NSNull null], response]);
+    
 }
-
-
 
 @end
