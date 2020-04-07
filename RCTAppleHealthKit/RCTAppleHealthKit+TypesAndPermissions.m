@@ -24,14 +24,18 @@
     // Characteristic Identifiers
     if ([@"DateOfBirth" isEqualToString: key]) {
         return [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierDateOfBirth];
-    }else if ([@"Height" isEqualToString: key]) {
+    } else if ([@"Height" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeight];
-    }else if ([@"Weight" isEqualToString: key]) {
+    } else if ([@"Weight" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMass];
     } else if ([@"BiologicalSex" isEqualToString: key]) {
         return [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierBiologicalSex];
-    }else if ([@"WheelChair" isEqualToString: key]) {
+    } else if ([@"WheelChair" isEqualToString: key]) {
         return [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierWheelchairUse];
+    } else if ([@"FitzpatrickSkinType" isEqualToString: key]) {
+        return [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierFitzpatrickSkinType];
+    } else if ([@"BloodType" isEqualToString: key]) {
+        return [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierBloodType];
     }
     
     // Body Measurements

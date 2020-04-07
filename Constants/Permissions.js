@@ -7,7 +7,10 @@ export const Permissions = {
   //Charecteris items
   BiologicalSex: "BiologicalSex",
   DateOfBirth: "DateOfBirth",
-  WheelChair:"WheelChair",
+  WheelChair: "WheelChair",
+  FitzpatrickSkinType: "FitzpatrickSkinType",
+  BloodType: "BloodType",
+  
   ActiveEnergyBurned: "ActiveEnergyBurned",
   BasalBodyTemperature: 'BasalBodyTemperature',
   MenstruationFlow: 'MenstruationFlow',
