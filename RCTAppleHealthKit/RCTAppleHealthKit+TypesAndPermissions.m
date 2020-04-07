@@ -24,10 +24,6 @@
     // Characteristic Identifiers
     if ([@"DateOfBirth" isEqualToString: key]) {
         return [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierDateOfBirth];
-    } else if ([@"Height" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeight];
-    } else if ([@"Weight" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMass];
     } else if ([@"BiologicalSex" isEqualToString: key]) {
         return [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierBiologicalSex];
     } else if ([@"WheelChair" isEqualToString: key]) {
@@ -41,7 +37,11 @@
     // Body Measurements
     if ([@"BodyMass" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMass];
-    }else if ([@"BodyFatPercentage" isEqualToString: key]) {
+    } else if ([@"Height" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeight];
+    } else if ([@"Weight" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMass];
+    } else if ([@"BodyFatPercentage" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyFatPercentage];
     }else if ([@"BodyMassIndex" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMassIndex];
@@ -49,10 +49,15 @@
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierLeanBodyMass];
     } else if ([@"WaistCircumference" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierWaistCircumference];
-    }
+    } else if ([@"ElectrodermalActivity" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierElectrodermalActivity];
+    } else if ([@"BasalBodyTemperature" isEqualToString: key] && systemVersion >= 10.0) {
+        return [HKObjectType quantityTypeForIdentifier: HKQuantityTypeIdentifierBasalBodyTemperature];
+    } 
 
     
-    
+
+
     // Fitness Identifiers
     if ([@"Steps" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
@@ -192,9 +197,7 @@
 
 
     // Reproductive Health
-    if ([@"BasalBodyTemperature" isEqualToString: key] && systemVersion >= 10.0) {
-        return [HKObjectType quantityTypeForIdentifier: HKQuantityTypeIdentifierBasalBodyTemperature];
-    } else if ([@"MenstruationFlow" isEqualToString: key]){
+    if ([@"MenstruationFlow" isEqualToString: key]){
         return [HKObjectType categoryTypeForIdentifier: HKCategoryTypeIdentifierMenstrualFlow];
     } else if ([@"OvulationTestResult" isEqualToString: key]){
         return [HKObjectType categoryTypeForIdentifier: HKCategoryTypeIdentifierOvulationTestResult];

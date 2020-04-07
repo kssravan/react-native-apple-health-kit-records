@@ -20,6 +20,9 @@ export const Permissions = {
   WaistCircumference: "WaistCircumference",
   BasalBodyTemperature: 'BasalBodyTemperature',
   BodyTemperature: "BodyTemperature",
+  ElectrodermalActivity: "ElectrodermalActivity",
+
+  
 
 
   ActiveEnergyBurned: "ActiveEnergyBurned",

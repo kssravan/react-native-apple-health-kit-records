@@ -19,5 +19,6 @@
 - (void)body_getWaistCircumferenceSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)body_getBasalBodyTemperatureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)body_getBodyTemperatureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)body_getElectrodermalActivitySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 
 @end

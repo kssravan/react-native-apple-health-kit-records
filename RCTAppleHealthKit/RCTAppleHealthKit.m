@@ -118,6 +118,11 @@ RCT_EXPORT_METHOD(getBodyTemperatureSamples:(NSDictionary *)input callback:(RCTR
     [self body_getBodyTemperatureSamples:input callback:callback];
 }
 
+RCT_EXPORT_METHOD(getElectrodermalActivitySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self body_getElectrodermalActivitySamples:input callback:callback];
+}
+
 
 
 // Vital Signs
