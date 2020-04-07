@@ -28,8 +28,10 @@
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeight];
     }else if ([@"Weight" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMass];
-    }else if ([@"BiologicalSex" isEqualToString: key]) {
+    } else if ([@"BiologicalSex" isEqualToString: key]) {
         return [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierBiologicalSex];
+    }else if ([@"WheelChair" isEqualToString: key]) {
+        return [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierWheelchairUse];
     }
     
     // Body Measurements

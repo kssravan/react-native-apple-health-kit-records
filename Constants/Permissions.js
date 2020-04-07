@@ -4,6 +4,10 @@
  * @type {Object}
  */
 export const Permissions = {
+  //Charecteris items
+  BiologicalSex: "BiologicalSex",
+  DateOfBirth: "DateOfBirth",
+  WheelChair:"WheelChair",
   ActiveEnergyBurned: "ActiveEnergyBurned",
   BasalBodyTemperature: 'BasalBodyTemperature',
   MenstruationFlow: 'MenstruationFlow',
@@ -11,7 +15,6 @@ export const Permissions = {
   SexualActivity: 'SexualActivity',
   AppleExerciseTime: "AppleExerciseTime",
   BasalEnergyBurned: "BasalEnergyBurned",
-  BiologicalSex: "BiologicalSex",
   BloodGlucose: "BloodGlucose",
   BloodPressureDiastolic: "BloodPressureDiastolic",
   BloodPressureSystolic: "BloodPressureSystolic",
@@ -19,7 +22,6 @@ export const Permissions = {
   BodyMass: "BodyMass",
   BodyMassIndex: "BodyMassIndex",
   BodyTemperature: "BodyTemperature",
-  DateOfBirth: "DateOfBirth",
   Biotin: "Biotin",
   Caffeine: "Caffeine",
   Calcium: "Calcium",

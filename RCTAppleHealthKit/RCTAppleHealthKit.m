@@ -316,7 +316,7 @@ RCT_EXPORT_METHOD(getMindfulSession:(NSDictionary *)input callback:(RCTResponseS
 
 RCT_EXPORT_METHOD(getNutritionSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
-    [self getNutritionSamples:input callback:callback];
+    [self dietary_getNutritionSamples:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(getBasalBodyTemperatureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
