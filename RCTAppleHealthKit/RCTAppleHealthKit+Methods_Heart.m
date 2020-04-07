@@ -17,8 +17,7 @@
 @implementation RCTAppleHealthKit (Methods_Heart)
 
 
-- (void)heart_getBloodPressureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
-{
+- (void)heart_getBloodPressureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback{
     HKCorrelationType *bloodPressureCorrelationType = [HKCorrelationType correlationTypeForIdentifier:HKCorrelationTypeIdentifierBloodPressure];
     HKQuantityType *systolicType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodPressureSystolic];
     HKQuantityType *diastolicType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodPressureDiastolic];
@@ -70,9 +69,7 @@
     }];
 }
 
-
-- (void)heart_getHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
-{
+- (void)heart_getHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback{
     HKQuantityType *heartRateType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
 
     HKUnit *count = [HKUnit countUnit];
@@ -196,6 +193,7 @@
     [self.healthStore executeQuery:query];
 
 }
+
 - (void)heart_getIrregularHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
     NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
     NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
@@ -241,8 +239,7 @@
 
 }
 
-- (void)heart_getHeartRateVariabilitySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
-{
+- (void)heart_getHeartRateVariabilitySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback{
     HKQuantityType *hrvType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRateVariabilitySDNN];
 
     HKUnit *unit = [HKUnit secondUnit];
@@ -273,10 +270,7 @@
     }];
 }
 
-
-
-- (void)heart_getRestingHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
-{
+- (void)heart_getRestingHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback{
     HKQuantityType *restingHeartRateType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierRestingHeartRate];
 
     HKUnit *count = [HKUnit countUnit];
@@ -308,7 +302,6 @@
                               }
                           }];
 }
-
 
 - (void)heart_getWalkingHeartRateAverageSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
     
@@ -343,7 +336,6 @@
                               }
                           }];
 }
-
 
 - (void)heart_getOxygenSaturationSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
     HKQuantityType *restingHeartRateType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierOxygenSaturation];
