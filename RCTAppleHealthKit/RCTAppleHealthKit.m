@@ -123,54 +123,56 @@ RCT_EXPORT_METHOD(getElectrodermalActivitySamples:(NSDictionary *)input callback
     [self body_getElectrodermalActivitySamples:input callback:callback];
 }
 
+//Heart
 
-
-// Vital Signs
+RCT_EXPORT_METHOD(getBloodPressureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self heart_getBloodPressureSamples:input callback:callback];
+}
 
 RCT_EXPORT_METHOD(getHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
-    [self vitals_getHeartRateSamples:input callback:callback];
-}
-
-RCT_EXPORT_METHOD(getHighHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self vitals_getHighHeartRateSamples:input callback:callback];
+    [self heart_getHeartRateSamples:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(getLowHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
-    [self vitals_getLowHeartRateSamples:input callback:callback];
+    [self heart_getLowHeartRateSamples:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getHighHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self heart_getHighHeartRateSamples:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(getIrregularHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
-    [self vitals_getIrregularHeartRateSamples:input callback:callback];
-}
-
-RCT_EXPORT_METHOD(getRestingHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self vitals_getRestingHeartRateSamples:input callback:callback];
+    [self heart_getIrregularHeartRateSamples:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(getHeartRateVariabilitySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
-    [self vitals_getHeartRateVariabilitySamples:input callback:callback];
+    [self heart_getHeartRateVariabilitySamples:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getRestingHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self heart_getRestingHeartRateSamples:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(getWalkingHeartRateAverageSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
-    [self vitals_getWalkingHeartRateAverageSamples:input callback:callback];
+    [self heart_getWalkingHeartRateAverageSamples:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(getOxygenSaturationSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
-    [self vitals_getOxygenSaturationSamples:input callback:callback];
+    [self heart_getOxygenSaturationSamples:input callback:callback];
 }
 
-RCT_EXPORT_METHOD(getBloodPressureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self vitals_getBloodPressureSamples:input callback:callback];
-}
+
+// Vital Signs
+
 
 RCT_EXPORT_METHOD(getRespiratoryRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {

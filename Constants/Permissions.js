@@ -22,7 +22,14 @@ export const Permissions = {
   BodyTemperature: "BodyTemperature",
   ElectrodermalActivity: "ElectrodermalActivity",
 
-  
+  //Heart
+
+  HeartRate: "HeartRate",
+  RestingHeartRate: "RestingHeartRate",
+  HeartRateVariability: "HeartRateVariability",
+  BloodPressureDiastolic: "BloodPressureDiastolic",
+  BloodPressureSystolic: "BloodPressureSystolic",
+
 
 
   ActiveEnergyBurned: "ActiveEnergyBurned",
@@ -32,8 +39,6 @@ export const Permissions = {
   AppleExerciseTime: "AppleExerciseTime",
   BasalEnergyBurned: "BasalEnergyBurned",
   BloodGlucose: "BloodGlucose",
-  BloodPressureDiastolic: "BloodPressureDiastolic",
-  BloodPressureSystolic: "BloodPressureSystolic",
 
   Biotin: "Biotin",
   Caffeine: "Caffeine",
@@ -77,9 +82,7 @@ export const Permissions = {
   DistanceSwimming: "DistanceSwimming",
   DistanceWalkingRunning: "DistanceWalkingRunning",
   FlightsClimbed: "FlightsClimbed",
-  HeartRate: "HeartRate",
-  RestingHeartRate: "RestingHeartRate",
-  HeartRateVariability:"HeartRateVariability",
+
   MindfulSession: "MindfulSession",
   NikeFuel: "NikeFuel",
   RespiratoryRate: "RespiratoryRate",
