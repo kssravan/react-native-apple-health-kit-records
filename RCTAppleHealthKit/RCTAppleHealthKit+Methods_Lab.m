@@ -8,6 +8,7 @@
 
 #import "RCTAppleHealthKit+Methods_Lab.h"
 #import "RCTAppleHealthKit+Queries.h"
+#import "RCTAppleHealthKit+Utils.h"
 
 @implementation RCTAppleHealthKit (Methods_Lab)
 

@@ -16,18 +16,8 @@
 #import "RCTAppleHealthKit+Methods_Dietary.h"
 #import "RCTAppleHealthKit+Methods_Characteristic.h"
 #import "RCTAppleHealthKit+Methods_Vitals.h"
-#import "RCTAppleHealthKit+Methods_Results.h"
-#import "RCTAppleHealthKit+Methods_Sleep.h"
 #import "RCTAppleHealthKit+Methods_Mindfulness.h"
-
-
-#import "RCTAppleHealthKit+Methods_Allergy.h"
-#import "RCTAppleHealthKit+Methods_Medication.h"
-#import "RCTAppleHealthKit+Methods_Condition.h"
-#import "RCTAppleHealthKit+Methods_Immunization.h"
-#import "RCTAppleHealthKit+Methods_Procedure.h"
 #import "RCTAppleHealthKit+Methods_Lab.h"
-#import "RCTAppleHealthKit+Methods_ClinicalVitals.h"
 #import "RCTAppleHealthKit+Methods_ReproductiveHealth.h"
 
 #import <React/RCTBridgeModule.h>
@@ -221,11 +211,6 @@ RCT_EXPORT_METHOD(getRespiratoryRateSamples:(NSDictionary *)input callback:(RCTR
 
 //
 
-RCT_EXPORT_METHOD(getStepCount:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self fitness_getStepCountOnDay:input callback:callback];
-}
-
 RCT_EXPORT_METHOD(getSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
     [self fitness_getSamples:input callback:callback];
@@ -239,12 +224,7 @@ RCT_EXPORT_METHOD(setObserver:(NSDictionary *)input)
 
 RCT_EXPORT_METHOD(getDailyStepCountSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
-    [self fitness_getDailyStepSamples:input callback:callback];
-}
-
-RCT_EXPORT_METHOD(saveSteps:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self fitness_saveSteps:input callback:callback];
+    [self activity_getDailyStepSamples:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(getDistanceWalkingRunning:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
@@ -254,12 +234,12 @@ RCT_EXPORT_METHOD(getDistanceWalkingRunning:(NSDictionary *)input callback:(RCTR
 
 RCT_EXPORT_METHOD(getDailyDistanceWalkingRunningSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
-    [self fitness_getDailyDistanceWalkingRunningSamples:input callback:callback];
+    [self activity_getDailyDistanceWalkingRunningSamples:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(getDailyDistanceSwimmingSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
-    [self fitness_getDailyDistanceSwimmingSamples:input callback:callback];
+    [self activity_getDailyDistanceSwimmingSamples:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(getDistanceCycling:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
@@ -269,17 +249,12 @@ RCT_EXPORT_METHOD(getDistanceCycling:(NSDictionary *)input callback:(RCTResponse
 
 RCT_EXPORT_METHOD(getDailyDistanceCyclingSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
-    [self fitness_getDailyDistanceCyclingSamples:input callback:callback];
-}
-
-RCT_EXPORT_METHOD(getFlightsClimbed:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self fitness_getFlightsClimbedOnDay:input callback:callback];
+    [self activity_getDailyDistanceCyclingSamples:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(getDailyFlightsClimbedSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
-    [self fitness_getDailyFlightsClimbedSamples:input callback:callback];
+    [self activity_getDailyFlightsClimbedSamples:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(saveFood:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
@@ -316,12 +291,12 @@ RCT_EXPORT_METHOD(getBasalEnergyDailySamples:(NSDictionary *)input callback:(RCT
 
 RCT_EXPORT_METHOD(getBloodGlucoseSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
-    [self results_getBloodGlucoseSamples:input callback:callback];
+    [self lab_getBloodGlucoseSamples:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(getSleepSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
-    [self sleep_getSleepSamples:input callback:callback];
+    [self mindfulness_getSleepSamples:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(getInfo:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
