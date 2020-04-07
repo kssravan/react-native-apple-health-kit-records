@@ -13,5 +13,7 @@
 
 - (void)characteristic_getBiologicalSex:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)characteristic_getDateOfBirth:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
-
+- (void)characteristic_getFitzpatrickSkinType:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)characteristic_getBloodType:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)characteristic_getWheelChairUse:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 @end

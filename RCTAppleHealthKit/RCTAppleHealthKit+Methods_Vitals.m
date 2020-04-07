@@ -39,6 +39,145 @@
     }];
 }
 
+- (void)vitals_getLowHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
+
+    HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"unit" withDefault:[count unitDividedByUnit:minute]];
+    NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
+    NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
+    double limit = [RCTAppleHealthKit doubleFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
+
+    NSSortDescriptor *timeSortDescriptor = [[NSSortDescriptor alloc]
+        initWithKey:HKSampleSortIdentifierEndDate
+        ascending:NO
+    ];
+
+    HKCategoryType *type = [HKCategoryType categoryTypeForIdentifier: HKCategoryTypeIdentifierLowHeartRateEve];
+    NSPredicate *predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
+
+    HKSampleQuery *query = [[HKSampleQuery alloc]
+        initWithSampleType:type
+        predicate:predicate
+        limit: limit
+        sortDescriptors:@[timeSortDescriptor]
+        resultsHandler:^(HKSampleQuery *query, NSArray *results, NSError *error) {
+
+            if (error != nil) {
+            NSLog(@"error with vitals_getLowHeartRateSamples: %@", error);
+            callback(@[RCTMakeError(@"error with vitals_getLowHeartRateSamples", error, nil)]);
+            return;
+            }
+            NSMutableArray *data = [NSMutableArray arrayWithCapacity:(10)];
+
+            for (HKQuantitySample *sample in results) {
+            NSString *startDateString = [RCTAppleHealthKit buildISO8601StringFromDate:sample.startDate];
+            NSString *endDateString = [RCTAppleHealthKit buildISO8601StringFromDate:sample.endDate];
+
+            NSDictionary *elem = @{
+                    @"startDate" : startDateString,
+                    @"endDate" : endDateString,
+            };
+
+            [data addObject:elem];
+        }
+        callback(@[[NSNull null], data]);
+     }
+    ];
+    [self.healthStore executeQuery:query];
+
+}
+
+- (void)vitals_getHighHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
+    HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"unit" withDefault:[count unitDividedByUnit:minute]];
+    NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
+    NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
+    double limit = [RCTAppleHealthKit doubleFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
+
+    NSSortDescriptor *timeSortDescriptor = [[NSSortDescriptor alloc]
+        initWithKey:HKSampleSortIdentifierEndDate
+        ascending:NO
+    ];
+
+    HKCategoryType *type = [HKCategoryType categoryTypeForIdentifier: HKCategoryTypeIdentifierHighHeartRateEvent];
+    NSPredicate *predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
+
+    HKSampleQuery *query = [[HKSampleQuery alloc]
+        initWithSampleType:type
+        predicate:predicate
+        limit: limit
+        sortDescriptors:@[timeSortDescriptor]
+        resultsHandler:^(HKSampleQuery *query, NSArray *results, NSError *error) {
+
+            if (error != nil) {
+            NSLog(@"error with vitals_getLowHeartRateSamples: %@", error);
+            callback(@[RCTMakeError(@"error with vitals_getLowHeartRateSamples", error, nil)]);
+            return;
+            }
+            NSMutableArray *data = [NSMutableArray arrayWithCapacity:(10)];
+
+            for (HKQuantitySample *sample in results) {
+            NSString *startDateString = [RCTAppleHealthKit buildISO8601StringFromDate:sample.startDate];
+            NSString *endDateString = [RCTAppleHealthKit buildISO8601StringFromDate:sample.endDate];
+
+            NSDictionary *elem = @{
+                    @"startDate" : startDateString,
+                    @"endDate" : endDateString,
+            };
+
+            [data addObject:elem];
+        }
+        callback(@[[NSNull null], data]);
+     }
+    ];
+    [self.healthStore executeQuery:query];
+
+}
+- (void)vitals_getIrregularHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
+    HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"unit" withDefault:[count unitDividedByUnit:minute]];
+    NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
+    NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
+    double limit = [RCTAppleHealthKit doubleFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
+
+    NSSortDescriptor *timeSortDescriptor = [[NSSortDescriptor alloc]
+        initWithKey:HKSampleSortIdentifierEndDate
+        ascending:NO
+    ];
+
+    HKCategoryType *type = [HKCategoryType categoryTypeForIdentifier: HKCategoryTypeIdentifierIrregularHeartRhythmEvent];
+    NSPredicate *predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
+
+    HKSampleQuery *query = [[HKSampleQuery alloc]
+        initWithSampleType:type
+        predicate:predicate
+        limit: limit
+        sortDescriptors:@[timeSortDescriptor]
+        resultsHandler:^(HKSampleQuery *query, NSArray *results, NSError *error) {
+
+            if (error != nil) {
+            NSLog(@"error with vitals_getLowHeartRateSamples: %@", error);
+            callback(@[RCTMakeError(@"error with vitals_getLowHeartRateSamples", error, nil)]);
+            return;
+            }
+            NSMutableArray *data = [NSMutableArray arrayWithCapacity:(10)];
+
+            for (HKQuantitySample *sample in results) {
+            NSString *startDateString = [RCTAppleHealthKit buildISO8601StringFromDate:sample.startDate];
+            NSString *endDateString = [RCTAppleHealthKit buildISO8601StringFromDate:sample.endDate];
+
+            NSDictionary *elem = @{
+                    @"startDate" : startDateString,
+                    @"endDate" : endDateString,
+            };
+
+            [data addObject:elem];
+        }
+        callback(@[[NSNull null], data]);
+     }
+    ];
+    [self.healthStore executeQuery:query];
+
+}
+
+
 
 - (void)vitals_getBodyTemperatureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
 {
@@ -228,6 +367,77 @@
                                   return;
                               }
                           }];
+}
+
+- (void)vitals_getWalkingHeartRateAverageSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
+    
+    HKQuantityType *restingHeartRateType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierWalkingHeartRateAverage];
+
+    HKUnit *count = [HKUnit countUnit];
+    HKUnit *minute = [HKUnit minuteUnit];
+
+    HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"unit" withDefault:[count unitDividedByUnit:minute]];
+    NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
+    BOOL ascending = [RCTAppleHealthKit boolFromOptions:input key:@"ascending" withDefault:false];
+    NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
+    NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
+    if(startDate == nil){
+        callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
+        return;
+    }
+    NSPredicate * predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
+
+    [self fetchQuantitySamplesOfType:restingHeartRateType
+                                unit:unit
+                           predicate:predicate
+                           ascending:ascending
+                               limit:limit
+                          completion:^(NSArray *results, NSError *error) {
+                              if(results){
+                                  callback(@[[NSNull null], results]);
+                                  return;
+                              } else {
+                                  callback(@[RCTJSErrorFromNSError(error)]);
+                                  return;
+                              }
+                          }];
+}
+
+- (void)vitals_getOxygenSaturationSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
+    HKQuantityType *restingHeartRateType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierOxygenSaturation];
+
+    HKUnit *count = [HKUnit countUnit];
+    HKUnit *minute = [HKUnit minuteUnit];
+
+    HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"percent" withDefault:[count unitDividedByUnit:minute]];
+    NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
+    BOOL ascending = [RCTAppleHealthKit boolFromOptions:input key:@"ascending" withDefault:false];
+    NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
+    NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
+    if(startDate == nil){
+        callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
+        return;
+    }
+    NSPredicate * predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
+
+    [self fetchQuantitySamplesOfType:restingHeartRateType
+                                unit:unit
+                           predicate:predicate
+                           ascending:ascending
+                               limit:limit
+                          completion:^(NSArray *results, NSError *error) {
+                              if(results){
+                                  callback(@[[NSNull null], results]);
+                                  return;
+                              } else {
+                                  callback(@[RCTJSErrorFromNSError(error)]);
+                                  return;
+                              }
+                          }];
+}
+
+- (void)vitals_getHeartBeatSeriesSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
+
 }
 
 @end

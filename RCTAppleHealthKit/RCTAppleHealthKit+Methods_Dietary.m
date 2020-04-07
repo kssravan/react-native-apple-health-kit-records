@@ -15,7 +15,7 @@
 
 @implementation RCTAppleHealthKit (Methods_Dietary)
 
-- (void)saveFood:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+- (void)dietary_saveFood:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
 {
     NSString *foodNameValue = [RCTAppleHealthKit stringFromOptions:input key:@"foodName" withDefault:nil];
     NSString *mealNameValue = [RCTAppleHealthKit stringFromOptions:input key:@"mealType" withDefault:nil];
@@ -384,7 +384,7 @@
     }];
 }
 
-- (void)saveWater:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+- (void)dietary_saveWater:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
 {
     NSDate *timeWaterWasConsumed = [RCTAppleHealthKit dateFromOptions:input key:@"date" withDefault:[NSDate date]];
     double waterValue = [RCTAppleHealthKit doubleFromOptions:input key:@"water" withDefault:(double)0];
@@ -407,7 +407,7 @@
 }
 
 
-- (void)getNutritionSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+- (void)dietary_getNutritionSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
 {
     NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
     NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];

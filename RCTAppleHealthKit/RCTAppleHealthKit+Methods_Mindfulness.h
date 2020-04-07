@@ -10,5 +10,6 @@
 
 - (void)mindfulness_getMindfulSession:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)mindfulness_saveMindfulSession:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)mindfulness_getSleepSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 
 @end

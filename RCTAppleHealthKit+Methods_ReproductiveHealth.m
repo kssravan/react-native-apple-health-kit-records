@@ -20,7 +20,7 @@
     HKQuantityType *sampleType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierBasalBodyTemperature];
     NSPredicate *predicate = [HKQuery predicateForSamplesWithStartDate:startDate endDate:endDate options:HKQueryOptionStrictStartDate];
 
-    [self fetchQuantitySamplesOfType:sampleType
+    [self fetchIntermenstrualBleedingSamples:sampleType
                                 unit:unit
                            predicate:predicate
                            ascending:ascending
@@ -30,8 +30,8 @@
                                   callback(@[[NSNull null], results]);
                                   return;
                               } else {
-                                  NSLog(@"error getting basal body temperature samples: %@", error);
-                                  callback(@[RCTMakeError(@"error getting basal body temperature samples", nil, nil)]);
+                                  NSLog(@"error getting fetchIntermenstrualBleedingSamples samples: %@", error);
+                                  callback(@[RCTMakeError(@"error fetchIntermenstrualBleedingSamples samples", nil, nil)]);
                                   return;
                               }
                           }];

@@ -77,4 +77,130 @@
     callback(@[[NSNull null], response]);
 }
 
+
+- (void)characteristic_getFitzpatrickSkinType:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
+    NSError *error;
+    HKFitzpatrickSkinType * skinType = [self.healthStore fitzpatrickSkinTypeWithError:&error];
+    NSString *value;
+
+    switch (skinType.HKFitzpatrickSkinType) {
+        case HKFitzpatrickSkinTypeNotSet:
+            value = @"Either the user’s skin type is not set, or the user has not granted your app permission to read the skin type.";
+            break;
+        case HKFitzpatrickSkinTypeI:
+            value = @"Pale white skin that always burns easily in the sun and never tans.";
+            break;
+        case HKFitzpatrickSkinTypeII:
+            value = @"White skin that burns easily and tans minimally.";
+            break;
+        case HKFitzpatrickSkinTypeIII:
+            value = @"White to light brown skin that burns moderately and tans uniformly.";
+            break;
+        case HKFitzpatrickSkinTypeIV:
+            value = @"Beige-olive, lightly tanned skin that burns minimally and tans moderately.";
+            break;
+        case HKFitzpatrickSkinTypeV:
+            value = @"Brown skin that rarely burns and tans profusely.";
+            break;
+        case HKFitzpatrickSkinTypeVI:
+            value = @"Dark brown to black skin that never burns and tans profusely.";
+            break;
+    }
+
+    if(value == nil){
+        callback(@[RCTJSErrorFromNSError(error)]);
+        return;
+    }
+
+    NSDictionary *response = @{
+            @"value" : value,
+    };
+
+    callback(@[[NSNull null], response]);
+}
+
+
+- (void)characteristic_getBloodType:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
+    NSError *error;
+    HKBloodType * bloodType = [self.healthStore bloodTypeWithError:&error];
+    NSString *value;
+
+    switch (bloodType.HKFitzpatrickSkinType) {
+        case HKBloodTypeNotSet:
+            value = @"Unknown";
+            break;
+        case HKBloodTypeAPositive:
+            value = @"A+";
+            break;
+        case HKBloodTypeANegative:
+            value = @"A-";
+            break;
+        case HKBloodTypeBPositive:
+            value = @"B+";
+            break;
+        case HKBloodTypeBNegative:
+            value = @"B-";
+            break;
+        case HKBloodTypeABPositive:
+            value = @"AB+";
+            break;
+        case HKBloodTypeABNegative:
+            value = @"AB-";
+            break;        
+        case HKBloodTypeOPositive:
+            value = @"O+";
+            break;        
+        case HKBloodTypeONegative:
+            value = @"O-";
+            break;
+    }
+
+    if(value == nil){
+        callback(@[RCTJSErrorFromNSError(error)]);
+        return;
+    }
+
+    NSDictionary *response = @{
+            @"value" : value,
+    };
+
+    callback(@[[NSNull null], response]);
+}
+
+- (void)characteristic_getWheelChairUse:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
+    NSError *error;
+    HKWheelchairUse * wheelChairUse = [self.healthStore wheelchairUseWithError:&error];
+    NSString *value;
+
+    switch (wheelChairUse) {
+            HKWheelchairUseNotSet = 0,
+            HKWheelchairUseNo,
+            HKWheelchairUseYes,
+
+            
+        case HKWheelchairUseNotSet:
+            value = @"Unknown";
+            break;
+        case HKWheelchairUseNo:
+            value = @"No;
+            break;
+        case HKWheelchairUseYes:
+            value = @"Yes;
+            break;
+    }
+
+    if(value == nil){
+        callback(@[RCTJSErrorFromNSError(error)]);
+        return;
+    }
+
+    NSDictionary *response = @{
+            @"value" : value,
+    };
+
+    callback(@[[NSNull null], response]);
+}
+
+
+
 @end

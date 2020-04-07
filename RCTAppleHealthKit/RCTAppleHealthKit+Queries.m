@@ -819,6 +819,62 @@
 }
 
 
+- (void)fetchIntermenstrualBleedingSamples:(NSPredicate *)predicate
+                         ascending:(BOOL)asc
+                             limit:(NSUInteger)limit
+                        completion:(void (^)(NSArray *, NSError *))completion {
+
+    void (^handlerBlock)(HKSampleQuery *query, NSArray *results, NSError *error)
+    = ^(HKSampleQuery *query, NSArray *results, NSError *error) {
+        if (!results) {
+            if (completion) {
+                completion(nil, error);
+            }
+            return;
+        }
+
+        if (completion) {
+            NSMutableArray *data = [NSMutableArray arrayWithCapacity:1];
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+                for (HKCategorySample *sample in results) {
+                    NSString *endDateString = [RCTAppleHealthKit buildISO8601StringFromDate:sample.endDate];
+                    NSString *startDateString = [RCTAppleHealthKit buildISO8601StringFromDate:sample.startDate];
+                    bool isTracked = [[sample metadata][HKMetadataKeyWasUserEntered] intValue] == 1;
+                    int protectionUsed = [[sample metadata][HKMetadataKeySexualActivityProtectionUsed] intValue];
+
+                    NSDictionary *elem = @{
+                                           @"endDate" : endDateString,
+                                           @"protectionUsed" : @(protectionUsed),
+                                           @"sourceId" : [[[sample sourceRevision] source] bundleIdentifier],
+                                           @"sourceName" : [[[sample sourceRevision] source] name],
+                                           @"startDate" : startDateString,
+                                           @"tracked" : @(isTracked),
+                                           @"value" : @(sample.value),
+                                           };
+
+                    [data addObject:elem];
+                }
+
+                completion(data, error);
+            });
+        }
+    };
+
+    HKSampleType *sampleType = [HKCategoryType categoryTypeForIdentifier: HKCategoryTypeIdentifierIntermenstrualBleeding];
+
+    NSSortDescriptor *timeSortDescriptor = [[NSSortDescriptor alloc] initWithKey:HKSampleSortIdentifierEndDate
+                                                                       ascending:asc];
+
+    HKSampleQuery *query = [[HKSampleQuery alloc] initWithSampleType:sampleType
+                                                           predicate:predicate
+                                                               limit:limit
+                                                     sortDescriptors:@[timeSortDescriptor]
+                                                      resultsHandler:handlerBlock];
+
+    [self.healthStore executeQuery:query];
+}
+
 
 
 - (void)fetchHealthRecordData:(HKClinicalType *)clinicalType

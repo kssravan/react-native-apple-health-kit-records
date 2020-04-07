@@ -11,6 +11,14 @@
 
 @interface RCTAppleHealthKit (Methods_Lab)
 
+- (void)allergy_getAllergyRecords:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)condition_getConditionRecords:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)immunization_getImmunizationRecords:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)medication_getMedicationRecords:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)procedure_getProcedureRecords:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)clinicalVitals_getClinicalVitalsRecords:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+
 - (void)lab_getLabRecords:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)lab_getBloodGlucoseSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 
 @end

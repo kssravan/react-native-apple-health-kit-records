@@ -30,4 +30,6 @@
 - (void)body_getLeanBodyMassSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)body_saveLeanBodyMass:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 
+- (void)body_getWaistCircumferenceSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+
 @end
