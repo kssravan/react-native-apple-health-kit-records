@@ -19,6 +19,7 @@
 #import "RCTAppleHealthKit+Methods_Mindfulness.h"
 #import "RCTAppleHealthKit+Methods_Lab.h"
 #import "RCTAppleHealthKit+Methods_ReproductiveHealth.h"
+#import "RCTAppleHealthKit+Methods_Heart.h"
 
 #import <React/RCTBridgeModule.h>
 #import <React/RCTEventDispatcher.h>
