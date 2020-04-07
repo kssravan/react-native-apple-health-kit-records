@@ -57,6 +57,23 @@
 
     
 
+    //Heart
+    if ([@"BloodGlucose" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodGlucose];
+    } else if ([@"HeartRate" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
+    } else if ([@"HeartRateVariability" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRateVariabilitySDNN];
+    } else if ([@"RestingHeartRate" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierRestingHeartRate];
+    } else if ([@"OxygenSaturation" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierOxygenSaturation];
+    } 
+
+    
+
+    // HKQuantityTypeIdentifierWalkingHeartRateAverage
+
 
     // Fitness Identifiers
     if ([@"Steps" isEqualToString: key]) {
@@ -87,9 +104,7 @@
     }
     
     // Vital Signs Identifiers
-    if ([@"HeartRate" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
-    }else if ([@"BodyTemperature" isEqualToString: key]) {
+    else if ([@"BodyTemperature" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyTemperature];
     }else if ([@"BloodPressureSystolic" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodPressureSystolic];
@@ -99,10 +114,7 @@
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierRespiratoryRate];
     }
     
-    // Results Identifiers
-    if ([@"BloodGlucose" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodGlucose];
-    }
+   
     
     // Sleep
     if ([@"SleepAnalysis" isEqualToString: key]) {
@@ -206,12 +218,7 @@
     } 
 
     //Heart Rate
-    if ([@"HeartRateVariability" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRateVariabilitySDNN];
-    }
-    else if ([@"RestingHeartRate" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierRestingHeartRate];
-    }
+    
 
     //Health kit records
 

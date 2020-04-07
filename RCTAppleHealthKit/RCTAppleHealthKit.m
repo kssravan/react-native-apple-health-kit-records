@@ -136,21 +136,6 @@ RCT_EXPORT_METHOD(getHeartRateSamples:(NSDictionary *)input callback:(RCTRespons
     [self heart_getHeartRateSamples:input callback:callback];
 }
 
-RCT_EXPORT_METHOD(getLowHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self heart_getLowHeartRateSamples:input callback:callback];
-}
-
-RCT_EXPORT_METHOD(getHighHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self heart_getHighHeartRateSamples:input callback:callback];
-}
-
-RCT_EXPORT_METHOD(getIrregularHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self heart_getIrregularHeartRateSamples:input callback:callback];
-}
-
 RCT_EXPORT_METHOD(getHeartRateVariabilitySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
     [self heart_getHeartRateVariabilitySamples:input callback:callback];

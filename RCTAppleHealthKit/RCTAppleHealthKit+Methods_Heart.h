@@ -13,9 +13,6 @@
 
 - (void)heart_getBloodPressureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)heart_getHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
-- (void)heart_getLowHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
-- (void)heart_getHighHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
-- (void)heart_getIrregularHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)heart_getHeartRateVariabilitySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)heart_getRestingHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)heart_getWalkingHeartRateAverageSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;

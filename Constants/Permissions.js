@@ -23,13 +23,12 @@ export const Permissions = {
   ElectrodermalActivity: "ElectrodermalActivity",
 
   //Heart
-
-  HeartRate: "HeartRate",
-  RestingHeartRate: "RestingHeartRate",
-  HeartRateVariability: "HeartRateVariability",
   BloodPressureDiastolic: "BloodPressureDiastolic",
   BloodPressureSystolic: "BloodPressureSystolic",
-
+  HeartRate: "HeartRate",
+  HeartRateVariability: "HeartRateVariability",
+  RestingHeartRate: "RestingHeartRate",
+  OxygenSaturation: "OxygenSaturation",
 
 
   ActiveEnergyBurned: "ActiveEnergyBurned",
