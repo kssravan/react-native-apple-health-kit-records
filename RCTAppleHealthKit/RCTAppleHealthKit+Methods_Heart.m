@@ -9,7 +9,7 @@
 
 #import "RCTAppleHealthKit.h"
 
-@interface RCTAppleHealthKit (Methods_Fitness)
+@interface RCTAppleHealthKit (Methods_Heart)
 
 
 - (void)heart_getBloodPressureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
