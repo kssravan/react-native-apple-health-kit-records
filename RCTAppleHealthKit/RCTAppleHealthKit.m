@@ -73,26 +73,11 @@ RCT_EXPORT_METHOD(getBloodType:(NSDictionary *)input callback:(RCTResponseSender
 
 // Body Measurements
 
-RCT_EXPORT_METHOD(getLatestHeight:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self body_getLatestHeight:input callback:callback];
-}
-
-RCT_EXPORT_METHOD(getLatestWeight:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self body_getLatestWeight:input callback:callback];
-}
 
 RCT_EXPORT_METHOD(getWeightSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
     [self body_getWeightSamples:input callback:callback];
 }
-
-RCT_EXPORT_METHOD(saveWeight:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self body_saveWeight:input callback:callback];
-}
-
 
 
 RCT_EXPORT_METHOD(getHeightSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
@@ -100,24 +85,10 @@ RCT_EXPORT_METHOD(getHeightSamples:(NSDictionary *)input callback:(RCTResponseSe
     [self body_getHeightSamples:input callback:callback];
 }
 
-RCT_EXPORT_METHOD(saveHeight:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self body_saveHeight:input callback:callback];
-}
 
-RCT_EXPORT_METHOD(getLatestBmi:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(getBmiSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
-    [self body_getLatestBodyMassIndex:input callback:callback];
-}
-
-RCT_EXPORT_METHOD(saveBmi:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self body_saveBodyMassIndex:input callback:callback];
-}
-
-RCT_EXPORT_METHOD(getLatestLeanBodyMass:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self body_getLatestLeanBodyMass:input callback:callback];
+    [self body_getBodyMassIndexSamples:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(getLeanBodyMassSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
@@ -125,25 +96,9 @@ RCT_EXPORT_METHOD(getLeanBodyMassSamples:(NSDictionary *)input callback:(RCTResp
     [self body_getLeanBodyMassSamples:input callback:callback];
 }
 
-RCT_EXPORT_METHOD(saveLeanBodyMass:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self body_saveLeanBodyMass:input callback:callback];
-}
-
-
-RCT_EXPORT_METHOD(getLatestBodyFatPercentage:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self body_getLatestBodyFatPercentage:input callback:callback];
-}
-
 RCT_EXPORT_METHOD(getBodyFatPercentageSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
     [self body_getBodyFatPercentageSamples:input callback:callback];
-}
-
-RCT_EXPORT_METHOD(saveBodyFatPercentage:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self body_saveBodyFatPercentage:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(getWaistCircumferenceSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
