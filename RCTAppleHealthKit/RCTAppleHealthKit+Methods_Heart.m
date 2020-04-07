@@ -1,5 +1,5 @@
 //
-//  RCTAppleHealthKit+Methods_Fitness.h
+//  RCTAppleHealthKit+Methods_Fitness.m
 //  RCTAppleHealthKit
 //
 //  Created by Greg Wilson on 2016-06-26.
@@ -7,9 +7,14 @@
 //  LICENSE file in the root directory of this source tree.
 //
 
-#import "RCTAppleHealthKit.h"
+#import "RCTAppleHealthKit+Methods_Fitness.h"
+#import "RCTAppleHealthKit+Queries.h"
+#import "RCTAppleHealthKit+Utils.h"
 
-@interface RCTAppleHealthKit (Methods_Heart)
+#import <React/RCTBridgeModule.h>
+#import <React/RCTEventDispatcher.h>
+
+@implementation RCTAppleHealthKit (Methods_Heart)
 
 
 - (void)heart_getBloodPressureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
