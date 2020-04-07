@@ -71,6 +71,7 @@ RCT_EXPORT_METHOD(getBloodType:(NSDictionary *)input callback:(RCTResponseSender
     [self characteristic_getBloodType:input callback:callback];
 }
 
+
 // Body Measurements
 
 
@@ -105,6 +106,18 @@ RCT_EXPORT_METHOD(getWaistCircumferenceSamples:(NSDictionary *)input callback:(R
 {
     [self body_getWaistCircumferenceSamples:input callback:callback];
 }
+
+RCT_EXPORT_METHOD(getBasalBodyTemperatureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self body_getBasalBodyTemperatureSamples:input callback:callback];
+}
+
+
+RCT_EXPORT_METHOD(getBodyTemperatureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self body_getBodyTemperatureSamples:input callback:callback];
+}
+
 
 
 // Vital Signs
@@ -147,11 +160,6 @@ RCT_EXPORT_METHOD(getWalkingHeartRateAverageSamples:(NSDictionary *)input callba
 RCT_EXPORT_METHOD(getOxygenSaturationSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
     [self vitals_getOxygenSaturationSamples:input callback:callback];
-}
-
-RCT_EXPORT_METHOD(getBodyTemperatureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self vitals_getBodyTemperatureSamples:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(getBloodPressureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
@@ -272,11 +280,6 @@ RCT_EXPORT_METHOD(getMindfulSession:(NSDictionary *)input callback:(RCTResponseS
 RCT_EXPORT_METHOD(getNutritionSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
     [self dietary_getNutritionSamples:input callback:callback];
-}
-
-RCT_EXPORT_METHOD(getBasalBodyTemperatureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self reproductiveHealth_getBasalBodyTemperatureSamples:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(getMenstruationFlowSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)

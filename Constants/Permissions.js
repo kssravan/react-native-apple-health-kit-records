@@ -17,10 +17,12 @@ export const Permissions = {
   BodyMassIndex: "BodyMassIndex",
   BodyFatPercentage: "BodyFatPercentage",
   LeanBodyMass: "LeanBodyMass",
-  WaistCircumference:"WaistCircumference",
+  WaistCircumference: "WaistCircumference",
+  BasalBodyTemperature: 'BasalBodyTemperature',
+  BodyTemperature: "BodyTemperature",
+
 
   ActiveEnergyBurned: "ActiveEnergyBurned",
-  BasalBodyTemperature: 'BasalBodyTemperature',
   MenstruationFlow: 'MenstruationFlow',
   OvulationTestResult: 'OvulationTestResult',
   SexualActivity: 'SexualActivity',
@@ -30,7 +32,6 @@ export const Permissions = {
   BloodPressureDiastolic: "BloodPressureDiastolic",
   BloodPressureSystolic: "BloodPressureSystolic",
 
-  BodyTemperature: "BodyTemperature",
   Biotin: "Biotin",
   Caffeine: "Caffeine",
   Calcium: "Calcium",
