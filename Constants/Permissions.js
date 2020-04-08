@@ -29,6 +29,7 @@ export const Permissions = {
   HeartRateVariability: "HeartRateVariability",
   RestingHeartRate: "RestingHeartRate",
   OxygenSaturation: "OxygenSaturation",
+  PeripheralPerfusionIndex: "PeripheralPerfusionIndex",
 
 
   ActiveEnergyBurned: "ActiveEnergyBurned",

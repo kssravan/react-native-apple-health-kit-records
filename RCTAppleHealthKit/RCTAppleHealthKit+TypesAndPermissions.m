@@ -68,11 +68,11 @@
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierRestingHeartRate];
     } else if ([@"OxygenSaturation" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierOxygenSaturation];
+    } else if ([@"PeripheralPerfusionIndex" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierPeripheralPerfusionIndex];
     } 
 
-    
 
-    // HKQuantityTypeIdentifierWalkingHeartRateAverage
 
 
     // Fitness Identifiers
