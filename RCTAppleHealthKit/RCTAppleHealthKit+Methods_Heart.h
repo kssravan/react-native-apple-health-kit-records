@@ -17,6 +17,7 @@
 - (void)heart_getRestingHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)heart_getWalkingHeartRateAverageSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)heart_getOxygenSaturationSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)heart_getPeripheralPerfusionIndexSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 
 
 @end

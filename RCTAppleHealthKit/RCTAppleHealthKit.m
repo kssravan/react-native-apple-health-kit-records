@@ -156,6 +156,11 @@ RCT_EXPORT_METHOD(getOxygenSaturationSamples:(NSDictionary *)input callback:(RCT
     [self heart_getOxygenSaturationSamples:input callback:callback];
 }
 
+RCT_EXPORT_METHOD(getPeripheralPerfusionIndexSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self heart_getPeripheralPerfusionIndexSamples:input callback:callback];
+}
+
 
 // Vital Signs
 

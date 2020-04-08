@@ -200,13 +200,14 @@
                           }];
 }
 
+
+
 - (void)heart_getOxygenSaturationSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
     HKQuantityType *restingHeartRateType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierOxygenSaturation];
 
-    HKUnit *count = [HKUnit countUnit];
-    HKUnit *minute = [HKUnit minuteUnit];
+    HKUnit *percent = [HKUnit percentUnit];
 
-    HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"percent" withDefault:[count unitDividedByUnit:minute]];
+    HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"percent" withDefault:percent];
     NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
     BOOL ascending = [RCTAppleHealthKit boolFromOptions:input key:@"ascending" withDefault:false];
     NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
@@ -232,6 +233,41 @@
                               }
                           }];
 }
+
+
+
+- (void)heart_getPeripheralPerfusionIndexSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
+    HKQuantityType * PeripheralPerfusionIndex = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierPeripheralPerfusionIndex];
+
+    HKUnit *percent = [HKUnit percentUnit];
+
+    HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"percent" withDefault:percent];
+    NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
+    BOOL ascending = [RCTAppleHealthKit boolFromOptions:input key:@"ascending" withDefault:false];
+    NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
+    NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
+    if(startDate == nil){
+        callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
+        return;
+    }
+    NSPredicate * predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
+
+    [self fetchQuantitySamplesOfType:PeripheralPerfusionIndex
+                                unit:unit
+                           predicate:predicate
+                           ascending:ascending
+                               limit:limit
+                          completion:^(NSArray *results, NSError *error) {
+                              if(results){
+                                  callback(@[[NSNull null], results]);
+                                  return;
+                              } else {
+                                  callback(@[RCTJSErrorFromNSError(error)]);
+                                  return;
+                              }
+                          }];
+}
+
 
 
 @end
