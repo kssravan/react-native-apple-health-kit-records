@@ -19,6 +19,8 @@
 #import "RCTAppleHealthKit+Methods_Mindfulness.h"
 #import "RCTAppleHealthKit+Methods_Lab.h"
 #import "RCTAppleHealthKit+Methods_ReproductiveHealth.h"
+#import "RCTAppleHealthKit+Methods_Respiratory.h"
+
 #import "RCTAppleHealthKit+Methods_Heart.h"
 
 #import <React/RCTBridgeModule.h>
@@ -162,13 +164,39 @@ RCT_EXPORT_METHOD(getPeripheralPerfusionIndexSamples:(NSDictionary *)input callb
 }
 
 
-// Vital Signs
-
+//Respiratory
 
 RCT_EXPORT_METHOD(getRespiratoryRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
-    [self vitals_getRespiratoryRateSamples:input callback:callback];
+    [self respiratory_getRespiratoryRateSamples:input callback:callback];
 }
+
+RCT_EXPORT_METHOD(getForcedExpiratoryVolumeSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self respiratory_getForcedExpiratoryVolumeSamples:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getForcedVitalCapacitySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self respiratory_getForcedVitalCapacitySamples:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getInhalerUsageSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self respiratory_getInhalerUsageSamples:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getPeakExpiratoryFlowRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self respiratory_getPeakExpiratoryFlowRateSamples:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getVO2MaxSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self respiratory_getVO2MaxSamples:input callback:callback];
+}
+
+// Vital Signs
 
 //
 

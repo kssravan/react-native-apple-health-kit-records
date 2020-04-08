@@ -72,6 +72,22 @@
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierPeripheralPerfusionIndex];
     } 
 
+    //Respiratory
+    if ([@"ForcedExpiratoryVolume1" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierForcedExpiratoryVolume1];
+    } else if ([@"ForcedVitalCapacity" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierForcedVitalCapacity];
+    } else if ([@"InhalerUsage" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierInhalerUsage];
+    } else if ([@"PeakExpiratoryFlowRate" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierPeakExpiratoryFlowRate];
+    } else if ([@"RespiratoryRate" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierRespiratoryRate];
+    } else if ([@"VO2Max" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierVO2Max];
+    }
+
+
 
 
 
@@ -110,9 +126,7 @@
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodPressureSystolic];
     }else if ([@"BloodPressureDiastolic" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodPressureDiastolic];
-    }else if ([@"RespiratoryRate" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierRespiratoryRate];
-    }
+    } 
     
    
     

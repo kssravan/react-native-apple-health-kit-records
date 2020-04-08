@@ -31,6 +31,15 @@ export const Permissions = {
   OxygenSaturation: "OxygenSaturation",
   PeripheralPerfusionIndex: "PeripheralPerfusionIndex",
 
+  //Respiratory
+  ForcedExpiratoryVolume1: "ForcedExpiratoryVolume1",
+  ForcedVitalCapacity: "ForcedVitalCapacity",
+  InhalerUsage: "InhalerUsage",
+  PeakExpiratoryFlowRate: "PeakExpiratoryFlowRate",
+  VO2Max: "VO2Max",
+  RespiratoryRate: "RespiratoryRate",
+
+
 
   ActiveEnergyBurned: "ActiveEnergyBurned",
   MenstruationFlow: 'MenstruationFlow',
@@ -85,7 +94,6 @@ export const Permissions = {
 
   MindfulSession: "MindfulSession",
   NikeFuel: "NikeFuel",
-  RespiratoryRate: "RespiratoryRate",
   SleepAnalysis: "SleepAnalysis",
   StepCount: "StepCount",
   Steps: "Steps",
