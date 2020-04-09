@@ -48,13 +48,16 @@ export const Permissions = {
   SexualActivity: 'SexualActivity',
   ToothbrushingEvent: "ToothbrushingEvent",
   UVExposure: "UVExposure",
-  
 
+
+  //Activity
   ActiveEnergyBurned: "ActiveEnergyBurned",
+  BasalEnergyBurned: "BasalEnergyBurned",
+
+
   MenstruationFlow: 'MenstruationFlow',
   OvulationTestResult: 'OvulationTestResult',
   AppleExerciseTime: "AppleExerciseTime",
-  BasalEnergyBurned: "BasalEnergyBurned",
 
   Biotin: "Biotin",
   Caffeine: "Caffeine",
@@ -105,7 +108,6 @@ export const Permissions = {
   StepCount: "StepCount",
   Steps: "Steps",
   Workout: "Workout",
-  ActiveEnergyBurned: "ActiveEnergyBurned",
   Allergies: "Allergies",
   Medications: "Medications",
   Conditions: "Conditions",
