@@ -22,6 +22,7 @@
 		A014F48B243C969C004E4788 /* RCTAppleHealthKit+Methods_Heart.m in Sources */ = {isa = PBXBuildFile; fileRef = A014F48A243C969C004E4788 /* RCTAppleHealthKit+Methods_Heart.m */; };
 		A01C33002437096D008F60B6 /* RCTAppleHealthKit+Methods_ReproductiveHealth.m in Sources */ = {isa = PBXBuildFile; fileRef = A01C32FF2437096C008F60B6 /* RCTAppleHealthKit+Methods_ReproductiveHealth.m */; };
 		A0417752243E05C200729524 /* RCTAppleHealthKit+Methods_Respiratory.m in Sources */ = {isa = PBXBuildFile; fileRef = A0417751243E05C100729524 /* RCTAppleHealthKit+Methods_Respiratory.m */; };
+		A041775B243EC1AC00729524 /* RCTAppleHealthKit+Methods_OtherData.m in Sources */ = {isa = PBXBuildFile; fileRef = A0417759243EC1AC00729524 /* RCTAppleHealthKit+Methods_OtherData.m */; };
 		A09396EF2432647C00276C21 /* RCTAppleHealthKit+Methods_Lab.m in Sources */ = {isa = PBXBuildFile; fileRef = A09396EB2432647B00276C21 /* RCTAppleHealthKit+Methods_Lab.m */; };
 		A09396F32432648C00276C21 /* RCTAppleHealthKit+Methods_Mindfulness.m in Sources */ = {isa = PBXBuildFile; fileRef = A09396F22432648C00276C21 /* RCTAppleHealthKit+Methods_Mindfulness.m */; };
 		C7F88CE6A9E2D530A1CBDFAA /* Pods_RCTAppleHealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C84411FDBEEBD8BA9C43C813 /* Pods_RCTAppleHealthKit.framework */; };
@@ -71,6 +72,8 @@
 		A01C32FF2437096C008F60B6 /* RCTAppleHealthKit+Methods_ReproductiveHealth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+Methods_ReproductiveHealth.m"; sourceTree = "<group>"; };
 		A0417750243E05C100729524 /* RCTAppleHealthKit+Methods_Respiratory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTAppleHealthKit+Methods_Respiratory.h"; sourceTree = "<group>"; };
 		A0417751243E05C100729524 /* RCTAppleHealthKit+Methods_Respiratory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+Methods_Respiratory.m"; sourceTree = "<group>"; };
+		A0417759243EC1AC00729524 /* RCTAppleHealthKit+Methods_OtherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+Methods_OtherData.m"; sourceTree = "<group>"; };
+		A041775A243EC1AC00729524 /* RCTAppleHealthKit+Methods_OtherData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTAppleHealthKit+Methods_OtherData.h"; sourceTree = "<group>"; };
 		A09396EB2432647B00276C21 /* RCTAppleHealthKit+Methods_Lab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+Methods_Lab.m"; sourceTree = "<group>"; };
 		A09396ED2432647B00276C21 /* RCTAppleHealthKit+Methods_Lab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTAppleHealthKit+Methods_Lab.h"; sourceTree = "<group>"; };
 		A09396F12432648C00276C21 /* RCTAppleHealthKit+Methods_Mindfulness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTAppleHealthKit+Methods_Mindfulness.h"; sourceTree = "<group>"; };
@@ -144,6 +147,8 @@
 				A014F48A243C969C004E4788 /* RCTAppleHealthKit+Methods_Heart.m */,
 				A0417750243E05C100729524 /* RCTAppleHealthKit+Methods_Respiratory.h */,
 				A0417751243E05C100729524 /* RCTAppleHealthKit+Methods_Respiratory.m */,
+				A041775A243EC1AC00729524 /* RCTAppleHealthKit+Methods_OtherData.h */,
+				A0417759243EC1AC00729524 /* RCTAppleHealthKit+Methods_OtherData.m */,
 			);
 			path = RCTAppleHealthKit;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3774C89B1D2095450000B3F3 /* RCTAppleHealthKit+Queries.m in Sources */,
+				A041775B243EC1AC00729524 /* RCTAppleHealthKit+Methods_OtherData.m in Sources */,
 				3774C8A11D20A6B90000B3F3 /* RCTAppleHealthKit+Utils.m in Sources */,
 				3774C8D41D20C6390000B3F3 /* RCTAppleHealthKit+Methods_Body.m in Sources */,
 				61232F931E303758000A5026 /* RCTAppleHealthKit+Methods_Mindfulness.m in Sources */,
