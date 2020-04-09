@@ -350,7 +350,7 @@
     
     NSPredicate *predicate = [HKQuery predicateForSamplesWithStartDate:startDate endDate:endDate options:HKQueryOptionStrictStartDate];
     
-    HKSampleType *samplesType = [RCTAppleHealthKit stringForHKWorkoutActivityType:type];
+    HKSampleType *samplesType = [RCTAppleHealthKit hkQuantityTypeFromString:type];
     if ([type isEqual:@"Running"] || [type isEqual:@"Cycling"]) {
         unit = [HKUnit mileUnit];
     }

@@ -59,7 +59,7 @@ export const Permissions = {
   DistanceCycling: "DistanceCycling",
   DistanceWheelchair: "DistanceWheelchair",
   PushCount: "PushCount",
-
+  WorkOuts: "WorkOuts",
 
 
   MenstruationFlow: 'MenstruationFlow',
