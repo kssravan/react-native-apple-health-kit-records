@@ -40,14 +40,21 @@ export const Permissions = {
   RespiratoryRate: "RespiratoryRate",
 
 
+  //Other Data
+  BloodAlcoholContent: "BloodAlcoholContent",
+  BloodGlucose: "BloodGlucose",
+  InsulinDelivery: "InsulinDelivery",
+  NumberOfTimesFallen: "NumberOfTimesFallen",
+  SexualActivity: 'SexualActivity',
+  ToothbrushingEvent: "ToothbrushingEvent",
+  UVExposure: "UVExposure",
+  
 
   ActiveEnergyBurned: "ActiveEnergyBurned",
   MenstruationFlow: 'MenstruationFlow',
   OvulationTestResult: 'OvulationTestResult',
-  SexualActivity: 'SexualActivity',
   AppleExerciseTime: "AppleExerciseTime",
   BasalEnergyBurned: "BasalEnergyBurned",
-  BloodGlucose: "BloodGlucose",
 
   Biotin: "Biotin",
   Caffeine: "Caffeine",

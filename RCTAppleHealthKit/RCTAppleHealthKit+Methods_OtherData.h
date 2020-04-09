@@ -3,6 +3,7 @@
 
 @interface RCTAppleHealthKit (Methods_OtherData)
 
+
 - (void)otherData_getBloodAlcoholContentSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)otherData_getBloodGlucoseSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)otherData_getInsulinDeliverySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;

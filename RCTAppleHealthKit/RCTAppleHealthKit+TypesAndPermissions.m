@@ -58,9 +58,7 @@
     
 
     //Heart
-    if ([@"BloodGlucose" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodGlucose];
-    } else if ([@"HeartRate" isEqualToString: key]) {
+    if ([@"HeartRate" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
     } else if ([@"HeartRateVariability" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRateVariabilitySDNN];
@@ -87,8 +85,22 @@
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierVO2Max];
     }
 
-
-
+    //Other Data
+    if ([@"BloodAlcoholContent" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodAlcoholContent];
+    } else if ([@"BloodGlucose" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodGlucose];
+    } else if ([@"InsulinDelivery" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierInsulinDelivery];
+    } else if ([@"NumberOfTimesFallen" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierNumberOfTimesFallen];
+    } else if ([@"SexualActivity" isEqualToString: key]){
+        return [HKObjectType categoryTypeForIdentifier: HKCategoryTypeIdentifierSexualActivity];
+    } else if ([@"ToothbrushingEvent" isEqualToString: key]){
+        return [HKObjectType categoryTypeForIdentifier:HKCategoryTypeIdentifierToothbrushingEvent];
+    } else if ([@"UVExposure" isEqualToString: key]){
+        return [HKObjectType categoryTypeForIdentifier: HKQuantityTypeIdentifierUVExposure];
+    }
 
 
     // Fitness Identifiers
@@ -227,8 +239,6 @@
         return [HKObjectType categoryTypeForIdentifier: HKCategoryTypeIdentifierMenstrualFlow];
     } else if ([@"OvulationTestResult" isEqualToString: key]){
         return [HKObjectType categoryTypeForIdentifier: HKCategoryTypeIdentifierOvulationTestResult];
-    } else if ([@"SexualActivity" isEqualToString: key]){
-        return [HKObjectType categoryTypeForIdentifier: HKCategoryTypeIdentifierSexualActivity];
     } 
 
     //Heart Rate
