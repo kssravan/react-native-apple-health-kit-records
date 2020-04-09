@@ -235,42 +235,16 @@ RCT_EXPORT_METHOD(getUVExposureSamples:(NSDictionary *)input callback:(RCTRespon
     [self otherData_getUVExposureSamples:input callback:callback];
 }
 
-//
+#pragma mark - Activity
 
-RCT_EXPORT_METHOD(getSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(getActiveEnergyBurned:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
-    [self fitness_getSamples:input callback:callback];
+   [self activity_getActiveEnergyBurned:input callback:callback];
 }
 
-RCT_EXPORT_METHOD(setObserver:(NSDictionary *)input)
+RCT_EXPORT_METHOD(getActiveEnergyDailySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
-    [self fitness_setObserver:input];
-}
-
-
-RCT_EXPORT_METHOD(getDailyStepCountSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self activity_getDailyStepSamples:input callback:callback];
-}
-
-RCT_EXPORT_METHOD(getDistanceWalkingRunning:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self fitness_getDistanceWalkingRunningOnDay:input callback:callback];
-}
-
-RCT_EXPORT_METHOD(getDailyDistanceWalkingRunningSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self activity_getDailyDistanceWalkingRunningSamples:input callback:callback];
-}
-
-RCT_EXPORT_METHOD(getDailyDistanceSwimmingSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self activity_getDailyDistanceSwimmingSamples:input callback:callback];
-}
-
-RCT_EXPORT_METHOD(getDistanceCycling:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self fitness_getDistanceCyclingOnDay:input callback:callback];
+   [self activity_getActiveEnergyDailySamples:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(getDailyDistanceCyclingSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
@@ -283,6 +257,66 @@ RCT_EXPORT_METHOD(getDailyFlightsClimbedSamples:(NSDictionary *)input callback:(
     [self activity_getDailyFlightsClimbedSamples:input callback:callback];
 }
 
+RCT_EXPORT_METHOD(getBasalEnergyDailySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+   [self activity_getBasalEnergyDailySamples:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getDailyStepCountSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self activity_getDailyStepSamples:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getDailyDistanceSwimmingSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self activity_getDailyDistanceSwimmingSamples:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getDailyDistanceWheelChairSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self activity_getDailyDistanceWheelChairSamples:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getDailyDistanceWalkingRunningSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self activity_getDailyDistanceWalkingRunningSamples:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getDailyPushCountSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self activity_getDailyPushCountSamples:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getDailyExcersizeTimeSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self activity_getDailyExcersizeTimeSamples:input callback:callback];
+}
+
+
+RCT_EXPORT_METHOD(getSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self fitness_getSamples:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(setObserver:(NSDictionary *)input)
+{
+    [self fitness_setObserver:input];
+}
+
+
+
+
+RCT_EXPORT_METHOD(getDistanceWalkingRunning:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self fitness_getDistanceWalkingRunningOnDay:input callback:callback];
+}
+
+
+RCT_EXPORT_METHOD(getDistanceCycling:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self fitness_getDistanceCyclingOnDay:input callback:callback];
+}
+
 RCT_EXPORT_METHOD(saveFood:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
     [self saveFood:input callback:callback];
@@ -293,27 +327,6 @@ RCT_EXPORT_METHOD(saveWater:(NSDictionary *)input callback:(RCTResponseSenderBlo
     [self saveWater:input callback:callback];
 }
 
-
-
-RCT_EXPORT_METHOD(getActiveEnergyBurned:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-   [self activity_getActiveEnergyBurned:input callback:callback];
-}
-
-RCT_EXPORT_METHOD(getActiveEnergyDailySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-   [self activity_getActiveEnergyDailySamples:input callback:callback];
-}
-
-RCT_EXPORT_METHOD(getBasalEnergyBurned:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-   [self activity_getBasalEnergyBurned:input callback:callback];
-}
-
-RCT_EXPORT_METHOD(getBasalEnergyDailySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-   [self activity_getBasalEnergyDailySamples:input callback:callback];
-}
 
 RCT_EXPORT_METHOD(getSleepSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
