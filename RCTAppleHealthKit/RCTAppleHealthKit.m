@@ -292,10 +292,9 @@ RCT_EXPORT_METHOD(getDailyExcersizeTimeSamples:(NSDictionary *)input callback:(R
     [self activity_getDailyExcersizeTimeSamples:input callback:callback];
 }
 
-
 RCT_EXPORT_METHOD(getSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
-    [self fitness_getSamples:input callback:callback];
+    [self activity_getSamples:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(setObserver:(NSDictionary *)input)

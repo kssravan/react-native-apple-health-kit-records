@@ -11,7 +11,6 @@
 
 @interface RCTAppleHealthKit (Methods_Fitness)
 
-- (void)fitness_getSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)fitness_setObserver:(NSDictionary *)input;
 - (void)fitness_initializeStepEventObserver:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)fitness_getDistanceWalkingRunningOnDay:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
