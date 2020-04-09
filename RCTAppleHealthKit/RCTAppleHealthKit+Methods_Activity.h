@@ -11,18 +11,17 @@
 
 @interface RCTAppleHealthKit (Methods_Activity)
 
-- (void)activity_getDailyStepSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
-- (void)activity_getDailyDistanceWalkingRunningSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
-- (void)activity_getDailyDistanceCyclingSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
-- (void)activity_getDailyPushCountSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
-- (void)activity_getDailyDistanceWheelChairSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
-- (void)activity_getDailyDistanceSwimmingSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
-- (void)activity_getBasalEnergyBurned:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)activity_getActiveEnergyBurned:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)activity_getActiveEnergyDailySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
-- (void)activity_getBasalEnergyDailySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
-- (void)activity_getFlightsClimbedOnDay:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)activity_getDailyDistanceCyclingSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)activity_getDailyFlightsClimbedSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)activity_getRestingEnergySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)activity_getBasalEnergyDailySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)activity_getDailyStepSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)activity_getDailyDistanceSwimmingSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)activity_getDailyDistanceWheelChairSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)activity_getDailyDistanceWalkingRunningSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)activity_getDailyPushCountSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)activity_getDailyExcersizeTimeSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 
 @end
