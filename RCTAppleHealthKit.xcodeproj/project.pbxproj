@@ -13,7 +13,6 @@
 		3774C89E1D2095850000B3F3 /* RCTAppleHealthKit+TypesAndPermissions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3774C89D1D2095850000B3F3 /* RCTAppleHealthKit+TypesAndPermissions.m */; };
 		3774C8A11D20A6B90000B3F3 /* RCTAppleHealthKit+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3774C8A01D20A6B90000B3F3 /* RCTAppleHealthKit+Utils.m */; };
 		3774C8D41D20C6390000B3F3 /* RCTAppleHealthKit+Methods_Body.m in Sources */ = {isa = PBXBuildFile; fileRef = 3774C8D31D20C6390000B3F3 /* RCTAppleHealthKit+Methods_Body.m */; };
-		3774C8D71D20C65F0000B3F3 /* RCTAppleHealthKit+Methods_Fitness.m in Sources */ = {isa = PBXBuildFile; fileRef = 3774C8D61D20C65F0000B3F3 /* RCTAppleHealthKit+Methods_Fitness.m */; };
 		377D44F31D247D0A004E35CB /* RCTAppleHealthKit+Methods_Characteristic.m in Sources */ = {isa = PBXBuildFile; fileRef = 377D44F21D247D0A004E35CB /* RCTAppleHealthKit+Methods_Characteristic.m */; };
 		58C81E6F1F84F6970005DD48 /* RCTAppleHealthKit+Methods_Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C81E6D1F84F6970005DD48 /* RCTAppleHealthKit+Methods_Activity.m */; };
 		61232F931E303758000A5026 /* RCTAppleHealthKit+Methods_Mindfulness.m in Sources */ = {isa = PBXBuildFile; fileRef = 61232F921E303758000A5026 /* RCTAppleHealthKit+Methods_Mindfulness.m */; };
@@ -53,8 +52,6 @@
 		3774C8A01D20A6B90000B3F3 /* RCTAppleHealthKit+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+Utils.m"; sourceTree = "<group>"; };
 		3774C8D21D20C6390000B3F3 /* RCTAppleHealthKit+Methods_Body.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTAppleHealthKit+Methods_Body.h"; sourceTree = "<group>"; };
 		3774C8D31D20C6390000B3F3 /* RCTAppleHealthKit+Methods_Body.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+Methods_Body.m"; sourceTree = "<group>"; };
-		3774C8D51D20C65F0000B3F3 /* RCTAppleHealthKit+Methods_Fitness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTAppleHealthKit+Methods_Fitness.h"; sourceTree = "<group>"; };
-		3774C8D61D20C65F0000B3F3 /* RCTAppleHealthKit+Methods_Fitness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+Methods_Fitness.m"; sourceTree = "<group>"; };
 		377D44F11D247D0A004E35CB /* RCTAppleHealthKit+Methods_Characteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTAppleHealthKit+Methods_Characteristic.h"; sourceTree = "<group>"; };
 		377D44F21D247D0A004E35CB /* RCTAppleHealthKit+Methods_Characteristic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+Methods_Characteristic.m"; sourceTree = "<group>"; };
 		58C81E6D1F84F6970005DD48 /* RCTAppleHealthKit+Methods_Activity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+Methods_Activity.m"; sourceTree = "<group>"; };
@@ -137,8 +134,6 @@
 				3774C8A01D20A6B90000B3F3 /* RCTAppleHealthKit+Utils.m */,
 				3774C8D21D20C6390000B3F3 /* RCTAppleHealthKit+Methods_Body.h */,
 				3774C8D31D20C6390000B3F3 /* RCTAppleHealthKit+Methods_Body.m */,
-				3774C8D51D20C65F0000B3F3 /* RCTAppleHealthKit+Methods_Fitness.h */,
-				3774C8D61D20C65F0000B3F3 /* RCTAppleHealthKit+Methods_Fitness.m */,
 				377D44F11D247D0A004E35CB /* RCTAppleHealthKit+Methods_Characteristic.h */,
 				377D44F21D247D0A004E35CB /* RCTAppleHealthKit+Methods_Characteristic.m */,
 				A01C32FE2437096C008F60B6 /* RCTAppleHealthKit+Methods_ReproductiveHealth.h */,
@@ -266,7 +261,6 @@
 				3774C89E1D2095850000B3F3 /* RCTAppleHealthKit+TypesAndPermissions.m in Sources */,
 				A014F48B243C969C004E4788 /* RCTAppleHealthKit+Methods_Heart.m in Sources */,
 				A09396EF2432647C00276C21 /* RCTAppleHealthKit+Methods_Lab.m in Sources */,
-				3774C8D71D20C65F0000B3F3 /* RCTAppleHealthKit+Methods_Fitness.m in Sources */,
 				A0417752243E05C200729524 /* RCTAppleHealthKit+Methods_Respiratory.m in Sources */,
 				A09396F32432648C00276C21 /* RCTAppleHealthKit+Methods_Mindfulness.m in Sources */,
 				58C81E6F1F84F6970005DD48 /* RCTAppleHealthKit+Methods_Activity.m in Sources */,

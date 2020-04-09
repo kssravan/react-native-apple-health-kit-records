@@ -12,7 +12,6 @@
 
 #import "RCTAppleHealthKit+Methods_Activity.h"
 #import "RCTAppleHealthKit+Methods_Body.h"
-#import "RCTAppleHealthKit+Methods_Fitness.h"
 #import "RCTAppleHealthKit+Methods_Dietary.h"
 #import "RCTAppleHealthKit+Methods_Characteristic.h"
 #import "RCTAppleHealthKit+Methods_Vitals.h"
@@ -43,11 +42,6 @@ RCT_EXPORT_METHOD(isAvailable:(RCTResponseSenderBlock)callback)
 RCT_EXPORT_METHOD(initHealthKit:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
     [self initializeHealthKit:input callback:callback];
-}
-
-RCT_EXPORT_METHOD(initStepCountObserver:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self fitness_initializeStepEventObserver:input callback:callback];
 }
 
 #pragma mark - Characteristic
@@ -295,19 +289,6 @@ RCT_EXPORT_METHOD(getDailyExcersizeTimeSamples:(NSDictionary *)input callback:(R
 RCT_EXPORT_METHOD(getSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
     [self activity_getSamples:input callback:callback];
-}
-
-RCT_EXPORT_METHOD(setObserver:(NSDictionary *)input)
-{
-    [self fitness_setObserver:input];
-}
-
-
-
-
-RCT_EXPORT_METHOD(getDistanceWalkingRunning:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self fitness_getDistanceWalkingRunningOnDay:input callback:callback];
 }
 
 
