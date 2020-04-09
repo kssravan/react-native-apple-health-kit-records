@@ -53,6 +53,12 @@ export const Permissions = {
   //Activity
   ActiveEnergyBurned: "ActiveEnergyBurned",
   BasalEnergyBurned: "BasalEnergyBurned",
+  DistanceSwimming: "DistanceSwimming",
+  DistanceWalkingRunning: "DistanceWalkingRunning",
+  FlightsClimbed: "FlightsClimbed",
+  DistanceCycling: "DistanceCycling",
+  DistanceWheelchair: "DistanceWheelchair",
+
 
 
   MenstruationFlow: 'MenstruationFlow',
@@ -97,10 +103,9 @@ export const Permissions = {
   VitaminK: "VitaminK",
   Zinc: "Zinc",
   Water: "Water",
-  DistanceCycling: "DistanceCycling",
-  DistanceSwimming: "DistanceSwimming",
-  DistanceWalkingRunning: "DistanceWalkingRunning",
-  FlightsClimbed: "FlightsClimbed",
+
+
+  
 
   MindfulSession: "MindfulSession",
   NikeFuel: "NikeFuel",
