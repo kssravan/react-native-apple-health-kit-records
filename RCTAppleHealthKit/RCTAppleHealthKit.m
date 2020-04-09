@@ -282,9 +282,9 @@ RCT_EXPORT_METHOD(getDailyDistanceWalkingRunningSamples:(NSDictionary *)input ca
     [self activity_getDailyDistanceWalkingRunningSamples:input callback:callback];
 }
 
-RCT_EXPORT_METHOD(getDailyPushCountSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(getPushCountSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
-    [self activity_getDailyPushCountSamples:input callback:callback];
+    [self activity_getPushCountSamples:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(getDailyExcersizeTimeSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)

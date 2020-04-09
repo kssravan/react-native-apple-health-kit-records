@@ -21,7 +21,7 @@
 - (void)activity_getDailyDistanceSwimmingSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)activity_getDailyDistanceWheelChairSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)activity_getDailyDistanceWalkingRunningSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
-- (void)activity_getDailyPushCountSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)activity_getPushCountSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)activity_getDailyExcersizeTimeSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 
 @end

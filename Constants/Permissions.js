@@ -58,6 +58,7 @@ export const Permissions = {
   FlightsClimbed: "FlightsClimbed",
   DistanceCycling: "DistanceCycling",
   DistanceWheelchair: "DistanceWheelchair",
+  PushCount: "PushCount",
 
 
 

@@ -124,7 +124,11 @@
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceSwimming];
     }else if ([@"DistanceWheelchair" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceWheelchair];
-    }
+    } else if ([@"PushCount" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierPushCount];
+    } 
+
+    
 
     
     

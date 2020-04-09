@@ -215,7 +215,7 @@
     NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
     NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
     NSUInteger period = [RCTAppleHealthKit uintFromOptions:input key:@"period" withDefault:60];
-    BOOL includeManuallyAdded = [RCTAppleHealthKit boolFromOptions:input key:@"includeManuallyAdded" withDefault:false];
+    BOOL includeManuallyAdded = [RCTAppleHealthKit boolFromOptions:input key:@"includeManuallyAdded" withDefault:true];
     if(startDate == nil){
         callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
         return;
@@ -242,25 +242,36 @@
 }
 
 - (void)activity_getPushCountSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
-    HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"unit" withDefault:[HKUnit meterUnit]];
-    NSDate *date = [RCTAppleHealthKit dateFromOptions:input key:@"date" withDefault:[NSDate date]];
-    
-    HKQuantityType *quantityType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierPushCount];
-    
-    [self fetchSumOfSamplesOnDayForType:quantityType unit:unit day:date completion:^(double distance, NSDate *startDate, NSDate *endDate, NSError *error) {
-        if (!distance) {
-            callback(@[RCTJSErrorFromNSError(error)]);
-            return;
-        }
-        
-        NSDictionary *response = @{
-            @"value" : @(distance),
-            @"startDate" : [RCTAppleHealthKit buildISO8601StringFromDate:startDate],
-            @"endDate" : [RCTAppleHealthKit buildISO8601StringFromDate:endDate],
-        };
-        
-        callback(@[[NSNull null], response]);
-    }];
+    HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"unit" withDefault:[HKUnit countUnit]];
+       NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
+       BOOL ascending = [RCTAppleHealthKit boolFromOptions:input key:@"ascending" withDefault:false];
+       NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
+       NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
+       NSUInteger period = [RCTAppleHealthKit uintFromOptions:input key:@"period" withDefault:60];
+       BOOL includeManuallyAdded = [RCTAppleHealthKit boolFromOptions:input key:@"includeManuallyAdded" withDefault:true];
+       if(startDate == nil){
+           callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
+           return;
+       }
+       
+       HKQuantityType *quantityType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierPushCount];
+       
+       [self fetchCumulativeSumStatisticsCollection:quantityType
+                                               unit:unit
+                                             period:period
+                                          startDate:startDate
+                                            endDate:endDate
+                                          ascending:ascending
+                                              limit:limit
+                               includeManuallyAdded:includeManuallyAdded
+                                         completion:^(NSArray *arr, NSError *err){
+           if (err != nil) {
+               NSLog(@"error with fetchCumulativeSumStatisticsCollection: %@", err);
+               callback(@[RCTMakeError(@"error with fetchCumulativeSumStatisticsCollection", err, nil)]);
+               return;
+           }
+           callback(@[[NSNull null], arr]);
+       }];
 }
 
 - (void)activity_getDailyDistanceWheelChairSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
@@ -271,7 +282,7 @@
       NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
       NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
       NSUInteger period = [RCTAppleHealthKit uintFromOptions:input key:@"period" withDefault:60];
-      BOOL includeManuallyAdded = [RCTAppleHealthKit boolFromOptions:input key:@"includeManuallyAdded" withDefault:false];
+      BOOL includeManuallyAdded = [RCTAppleHealthKit boolFromOptions:input key:@"includeManuallyAdded" withDefault:true];
       if(startDate == nil){
           callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
           return;
