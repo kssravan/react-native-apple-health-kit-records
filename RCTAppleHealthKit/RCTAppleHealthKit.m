@@ -20,7 +20,7 @@
 #import "RCTAppleHealthKit+Methods_Lab.h"
 #import "RCTAppleHealthKit+Methods_ReproductiveHealth.h"
 #import "RCTAppleHealthKit+Methods_Respiratory.h"
-#import "RCTAppleHealthKit+Methods_OtherData.h.h"
+#import "RCTAppleHealthKit+Methods_OtherData.h"
 
 #import "RCTAppleHealthKit+Methods_Heart.h"
 
@@ -207,7 +207,7 @@ RCT_EXPORT_METHOD(getBloodAlcoholContentSamples:(NSDictionary *)input callback:(
 
 RCT_EXPORT_METHOD(getBloodGlucoseSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
-    [self otherData_getBloodAlcoholContentSamples:input callback:callback];
+    [self otherData_getBloodGlucoseSamples:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(getInsulinDeliverySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
