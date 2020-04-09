@@ -19,6 +19,5 @@
 - (void)clinicalVitals_getClinicalVitalsRecords:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 
 - (void)lab_getLabRecords:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
-- (void)lab_getBloodGlucoseSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 
 @end

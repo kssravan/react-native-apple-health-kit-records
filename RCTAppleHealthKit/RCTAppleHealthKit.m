@@ -20,6 +20,7 @@
 #import "RCTAppleHealthKit+Methods_Lab.h"
 #import "RCTAppleHealthKit+Methods_ReproductiveHealth.h"
 #import "RCTAppleHealthKit+Methods_Respiratory.h"
+#import "RCTAppleHealthKit+Methods_OtherData.h.h"
 
 #import "RCTAppleHealthKit+Methods_Heart.h"
 
@@ -31,6 +32,8 @@
 @synthesize bridge = _bridge;
 
 RCT_EXPORT_MODULE();
+
+#pragma mark - initalization
 
 RCT_EXPORT_METHOD(isAvailable:(RCTResponseSenderBlock)callback)
 {
@@ -47,7 +50,7 @@ RCT_EXPORT_METHOD(initStepCountObserver:(NSDictionary *)input callback:(RCTRespo
     [self fitness_initializeStepEventObserver:input callback:callback];
 }
 
-//Characteristic Properties
+#pragma mark - Characteristic
 
 RCT_EXPORT_METHOD(getBiologicalSex:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
@@ -75,8 +78,7 @@ RCT_EXPORT_METHOD(getBloodType:(NSDictionary *)input callback:(RCTResponseSender
 }
 
 
-// Body Measurements
-
+#pragma mark - Body Measurements
 
 RCT_EXPORT_METHOD(getWeightSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
@@ -126,7 +128,7 @@ RCT_EXPORT_METHOD(getElectrodermalActivitySamples:(NSDictionary *)input callback
     [self body_getElectrodermalActivitySamples:input callback:callback];
 }
 
-//Heart
+#pragma mark - Heart
 
 RCT_EXPORT_METHOD(getBloodPressureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
@@ -163,8 +165,8 @@ RCT_EXPORT_METHOD(getPeripheralPerfusionIndexSamples:(NSDictionary *)input callb
     [self heart_getPeripheralPerfusionIndexSamples:input callback:callback];
 }
 
+#pragma mark - Respiratory
 
-//Respiratory
 
 RCT_EXPORT_METHOD(getRespiratoryRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
@@ -196,7 +198,42 @@ RCT_EXPORT_METHOD(getVO2MaxSamples:(NSDictionary *)input callback:(RCTResponseSe
     [self respiratory_getVO2MaxSamples:input callback:callback];
 }
 
-// Vital Signs
+#pragma mark - Other Data
+
+RCT_EXPORT_METHOD(getBloodAlcoholContentSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self otherData_getBloodAlcoholContentSamples:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getBloodGlucoseSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self otherData_getBloodAlcoholContentSamples:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getInsulinDeliverySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self otherData_getInsulinDeliverySamples:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getNumberOfTimesFallenSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self otherData_getNumberOfTimesFallenSamples:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getSexualActivitySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self otherData_getSexualActivitySamples:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getToothbrushingEventSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self otherData_getToothbrushingEventSamples:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getUVExposureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self otherData_getUVExposureSamples:input callback:callback];
+}
 
 //
 
@@ -278,11 +315,6 @@ RCT_EXPORT_METHOD(getBasalEnergyDailySamples:(NSDictionary *)input callback:(RCT
    [self activity_getBasalEnergyDailySamples:input callback:callback];
 }
 
-RCT_EXPORT_METHOD(getBloodGlucoseSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self lab_getBloodGlucoseSamples:input callback:callback];
-}
-
 RCT_EXPORT_METHOD(getSleepSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
     [self mindfulness_getSleepSamples:input callback:callback];
@@ -318,10 +350,7 @@ RCT_EXPORT_METHOD(getOvulationTestResultSamples:(NSDictionary *)input callback:(
     [self reproductiveHealth_getOvulationTestResultSamples:input callback:callback];
 }
 
-RCT_EXPORT_METHOD(getSexualActivitySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self reproductiveHealth_getSexualActivitySamples:input callback:callback];
-}
+
 
 
 
