@@ -127,7 +127,7 @@
     } else if ([@"PushCount" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierPushCount];
     } else if ([@"WorkOuts" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKWorkoutTypeIdentifier];
+        return [HKObjectType workoutType] ;
     } 
     
     
