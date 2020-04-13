@@ -15,9 +15,7 @@
 
 
 - (nullable HKObjectType *)getReadPermFromText:(nonnull NSString*)key {
-    
-    NSLog(@"paramter key is",key);
-    
+        
     UIDevice *deviceInfo = [UIDevice currentDevice];
     float systemVersion = deviceInfo.systemVersion.floatValue;
 
@@ -27,7 +25,11 @@
     } else if ([@"BiologicalSex" isEqualToString: key]) {
         return [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierBiologicalSex];
     } else if ([@"WheelChair" isEqualToString: key]) {
-        return [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierWheelchairUse];
+        if (@available(iOS 10.0, *)) {
+            return [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierWheelchairUse];
+        } else {
+            // Fallback on earlier versions
+        }
     } else if ([@"FitzpatrickSkinType" isEqualToString: key]) {
         return [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierFitzpatrickSkinType];
     } else if ([@"BloodType" isEqualToString: key]) {
@@ -48,7 +50,11 @@
     }  else if ([@"LeanBodyMass" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierLeanBodyMass];
     } else if ([@"WaistCircumference" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierWaistCircumference];
+        if (@available(iOS 11.0, *)) {
+            return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierWaistCircumference];
+        } else {
+            // Fallback on earlier versions
+        }
     } else if ([@"ElectrodermalActivity" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierElectrodermalActivity];
     } else if ([@"BasalBodyTemperature" isEqualToString: key] && systemVersion >= 10.0) {
@@ -61,9 +67,17 @@
     if ([@"HeartRate" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
     } else if ([@"HeartRateVariability" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRateVariabilitySDNN];
+        if (@available(iOS 11.0, *)) {
+            return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRateVariabilitySDNN];
+        } else {
+            // Fallback on earlier versions
+        }
     } else if ([@"RestingHeartRate" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierRestingHeartRate];
+        if (@available(iOS 11.0, *)) {
+            return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierRestingHeartRate];
+        } else {
+            // Fallback on earlier versions
+        }
     } else if ([@"OxygenSaturation" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierOxygenSaturation];
     } else if ([@"PeripheralPerfusionIndex" isEqualToString: key]) {
@@ -82,7 +96,11 @@
     } else if ([@"RespiratoryRate" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierRespiratoryRate];
     } else if ([@"VO2Max" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierVO2Max];
+        if (@available(iOS 11.0, *)) {
+            return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierVO2Max];
+        } else {
+            // Fallback on earlier versions
+        }
     }
 
     //Other Data
@@ -91,13 +109,21 @@
     } else if ([@"BloodGlucose" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodGlucose];
     } else if ([@"InsulinDelivery" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierInsulinDelivery];
+        if (@available(iOS 11.0, *)) {
+            return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierInsulinDelivery];
+        } else {
+            // Fallback on earlier versions
+        }
     } else if ([@"NumberOfTimesFallen" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierNumberOfTimesFallen];
     } else if ([@"SexualActivity" isEqualToString: key]){
         return [HKObjectType categoryTypeForIdentifier: HKCategoryTypeIdentifierSexualActivity];
     } else if ([@"ToothbrushingEvent" isEqualToString: key]){
-        return [HKObjectType categoryTypeForIdentifier:HKCategoryTypeIdentifierToothbrushingEvent];
+        if (@available(iOS 13.0, *)) {
+            return [HKObjectType categoryTypeForIdentifier:HKCategoryTypeIdentifierToothbrushingEvent];
+        } else {
+            // Fallback on earlier versions
+        }
     } else if ([@"UVExposure" isEqualToString: key]){
         return [HKObjectType categoryTypeForIdentifier: HKQuantityTypeIdentifierUVExposure];
     }
@@ -121,11 +147,23 @@
     }else if ([@"NikeFuel" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierNikeFuel];
     }else if ([@"DistanceSwimming" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceSwimming];
+        if (@available(iOS 10.0, *)) {
+            return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceSwimming];
+        } else {
+            // Fallback on earlier versions
+        }
     }else if ([@"DistanceWheelchair" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceWheelchair];
+        if (@available(iOS 10.0, *)) {
+            return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceWheelchair];
+        } else {
+            // Fallback on earlier versions
+        }
     } else if ([@"PushCount" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierPushCount];
+        if (@available(iOS 10.0, *)) {
+            return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierPushCount];
+        } else {
+            // Fallback on earlier versions
+        }
     } else if ([@"WorkOuts" isEqualToString: key]) {
         return [HKObjectType workoutType] ;
     } 
@@ -158,7 +196,11 @@
     
     // workouts
     if ([@"MindfulSession" isEqualToString: key] && systemVersion >= 10.0) {
-        return [HKObjectType categoryTypeForIdentifier:HKCategoryTypeIdentifierMindfulSession];
+        if (@available(iOS 10.0, *)) {
+            return [HKObjectType categoryTypeForIdentifier:HKCategoryTypeIdentifierMindfulSession];
+        } else {
+            // Fallback on earlier versions
+        }
     } else if ([@"MindfulSession" isEqualToString: key]){
         return [HKObjectType workoutType];
     }
@@ -256,19 +298,47 @@
     //Health kit records
 
     if ([@"Allergies" isEqualToString: key] && systemVersion >= 10.0) {
-        return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierAllergyRecord];
+        if (@available(iOS 12.0, *)) {
+            return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierAllergyRecord];
+        } else {
+            // Fallback on earlier versions
+        }
     } else if ([@"Medications" isEqualToString: key]){
-        return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierMedicationRecord];
+        if (@available(iOS 12.0, *)) {
+            return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierMedicationRecord];
+        } else {
+            // Fallback on earlier versions
+        }
     } else if ([@"Conditions" isEqualToString: key]){
-        return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierConditionRecord];
+        if (@available(iOS 12.0, *)) {
+            return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierConditionRecord];
+        } else {
+            // Fallback on earlier versions
+        }
     } else if ([@"Immunizations" isEqualToString: key]){
-        return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierImmunizationRecord];
+        if (@available(iOS 12.0, *)) {
+            return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierImmunizationRecord];
+        } else {
+            // Fallback on earlier versions
+        }
     } else if ([@"Procedures" isEqualToString: key]){
-        return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierProcedureRecord];
+        if (@available(iOS 12.0, *)) {
+            return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierProcedureRecord];
+        } else {
+            // Fallback on earlier versions
+        }
     } else if ([@"Labs" isEqualToString: key]){
-        return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierLabResultRecord];
+        if (@available(iOS 12.0, *)) {
+            return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierLabResultRecord];
+        } else {
+            // Fallback on earlier versions
+        }
     } else if ([@"ClinicalVitals" isEqualToString: key]){
-        return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierVitalSignRecord];
+        if (@available(iOS 12.0, *)) {
+            return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierVitalSignRecord];
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     return nil;
@@ -396,7 +466,11 @@
     
     // Mindfulness
     if([@"MindfulSession" isEqualToString:key]) {
-        return [HKObjectType categoryTypeForIdentifier:HKCategoryTypeIdentifierMindfulSession];
+        if (@available(iOS 10.0, *)) {
+            return [HKObjectType categoryTypeForIdentifier:HKCategoryTypeIdentifierMindfulSession];
+        } else {
+            // Fallback on earlier versions
+        }
     }
 
 
@@ -413,28 +487,64 @@
 
  //Heart Rate
     if ([@"HeartRateVariability" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRateVariabilitySDNN];
+        if (@available(iOS 11.0, *)) {
+            return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRateVariabilitySDNN];
+        } else {
+            // Fallback on earlier versions
+        }
     }
     else if ([@"RestingHeartRate" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierRestingHeartRate];
+        if (@available(iOS 11.0, *)) {
+            return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierRestingHeartRate];
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     //Health kit records
 
     if ([@"Allergies" isEqualToString: key] && systemVersion >= 10.0) {
-        return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierAllergyRecord];
+        if (@available(iOS 12.0, *)) {
+            return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierAllergyRecord];
+        } else {
+            // Fallback on earlier versions
+        }
     } else if ([@"Medications" isEqualToString: key]){
-        return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierMedicationRecord];
+        if (@available(iOS 12.0, *)) {
+            return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierMedicationRecord];
+        } else {
+            // Fallback on earlier versions
+        }
     } else if ([@"Conditions" isEqualToString: key]){
-        return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierConditionRecord];
+        if (@available(iOS 12.0, *)) {
+            return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierConditionRecord];
+        } else {
+            // Fallback on earlier versions
+        }
     } else if ([@"Immunizations" isEqualToString: key]){
-        return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierImmunizationRecord];
+        if (@available(iOS 12.0, *)) {
+            return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierImmunizationRecord];
+        } else {
+            // Fallback on earlier versions
+        }
     } else if ([@"Procedures" isEqualToString: key]){
-        return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierProcedureRecord];
+        if (@available(iOS 12.0, *)) {
+            return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierProcedureRecord];
+        } else {
+            // Fallback on earlier versions
+        }
     } else if ([@"Labs" isEqualToString: key]){
-        return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierLabResultRecord];
+        if (@available(iOS 12.0, *)) {
+            return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierLabResultRecord];
+        } else {
+            // Fallback on earlier versions
+        }
     } else if ([@"ClinicalVitals" isEqualToString: key]){
-        return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierVitalSignRecord];
+        if (@available(iOS 12.0, *)) {
+            return [HKObjectType clinicalTypeForIdentifier: HKClinicalTypeIdentifierVitalSignRecord];
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     return nil;
