@@ -85,7 +85,7 @@
                     predicate:(NSPredicate *)predicate
                     ascending:(BOOL)asc
                         limit:(NSUInteger)lim
-                   completion:(void (^)(NSArray *, NSError *))completion;
+                   completion:(void (^)(NSArray *, NSError *))completion API_AVAILABLE(ios(12.0));
 
 - (void)fetchOvulationTestResultSamples:(NSPredicate *)predicate
  ascending:(BOOL)asc

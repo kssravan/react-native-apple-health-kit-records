@@ -236,11 +236,6 @@ RCT_EXPORT_METHOD(getActiveEnergyBurned:(NSDictionary *)input callback:(RCTRespo
    [self activity_getActiveEnergyBurned:input callback:callback];
 }
 
-RCT_EXPORT_METHOD(getActiveEnergyDailySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-   [self activity_getActiveEnergyDailySamples:input callback:callback];
-}
-
 RCT_EXPORT_METHOD(getDailyDistanceCyclingSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
     [self activity_getDailyDistanceCyclingSamples:input callback:callback];

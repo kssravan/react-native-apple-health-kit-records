@@ -174,34 +174,39 @@
 
 
 - (void)respiratory_getVO2MaxSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
-     HKQuantityType * vO2Max = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierVO2Max];
-
-    HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"unit" withDefault:[HKUnit unitFromString:@"mL/min·kg"]];
-    NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
-    BOOL ascending = [RCTAppleHealthKit boolFromOptions:input key:@"ascending" withDefault:false];
-    NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
-    NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
-    if(startDate == nil){
-        callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
-        return;
-    }
-    NSPredicate * predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
-
-    [self fetchQuantitySamplesOfType:vO2Max
-                                unit:unit
-                           predicate:predicate
-                           ascending:ascending
-                               limit:limit
-                          completion:^(NSArray *results, NSError *error) {
-        if(results){
-            callback(@[[NSNull null], results]);
-            return;
-        } else {
-            NSLog(@"error respiratory_getVO2MaxSamples samples: %@", error);
-            callback(@[RCTMakeError(@"error respiratory_getVO2MaxSamples samples", nil, nil)]);
+    if (@available(iOS 11.0, *)) {
+        HKQuantityType * vO2Max = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierVO2Max];
+        
+        HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"unit" withDefault:[HKUnit unitFromString:@"mL/min·kg"]];
+        NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
+        BOOL ascending = [RCTAppleHealthKit boolFromOptions:input key:@"ascending" withDefault:false];
+        NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
+        NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
+        if(startDate == nil){
+            callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
             return;
         }
-    }];
+        NSPredicate * predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
+        
+        [self fetchQuantitySamplesOfType:vO2Max
+                                    unit:unit
+                               predicate:predicate
+                               ascending:ascending
+                                   limit:limit
+                              completion:^(NSArray *results, NSError *error) {
+            if(results){
+                callback(@[[NSNull null], results]);
+                return;
+            } else {
+                NSLog(@"error respiratory_getVO2MaxSamples samples: %@", error);
+                callback(@[RCTMakeError(@"error respiratory_getVO2MaxSamples samples", nil, nil)]);
+                return;
+            }
+        }];
+    } else {
+        // Fallback on earlier versions
+        callback(@[RCTMakeError(@"error with respiratory_getVO2MaxSamples", nil, nil)]);
+    }
 }
 
 

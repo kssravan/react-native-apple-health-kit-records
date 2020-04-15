@@ -73,33 +73,38 @@
 
 - (void)otherData_getInsulinDeliverySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
 {
-    HKQuantityType *InsulinDeliveryType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierInsulinDelivery];
-
-    HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"unit" withDefault:[HKUnit unitFromString:@"IU"]];
-    NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
-    BOOL ascending = [RCTAppleHealthKit boolFromOptions:input key:@"ascending" withDefault:false];
-    NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
-    NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
-    if(startDate == nil){
-        callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
-        return;
-    }
-    NSPredicate * predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
-
-    [self fetchQuantitySamplesOfType:InsulinDeliveryType
-                                unit:unit
-                           predicate:predicate
-                           ascending:ascending
-                               limit:limit
-                          completion:^(NSArray *results, NSError *error) {
-        if(results){
-            callback(@[[NSNull null], results]);
-            return;
-        } else {
-            callback(@[RCTJSErrorFromNSError(error)]);
+    if (@available(iOS 11.0, *)) {
+        HKQuantityType *InsulinDeliveryType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierInsulinDelivery];
+        
+        HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"unit" withDefault:[HKUnit unitFromString:@"IU"]];
+        NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
+        BOOL ascending = [RCTAppleHealthKit boolFromOptions:input key:@"ascending" withDefault:false];
+        NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
+        NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
+        if(startDate == nil){
+            callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
             return;
         }
-    }];
+        NSPredicate * predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
+        
+        [self fetchQuantitySamplesOfType:InsulinDeliveryType
+                                    unit:unit
+                               predicate:predicate
+                               ascending:ascending
+                                   limit:limit
+                              completion:^(NSArray *results, NSError *error) {
+            if(results){
+                callback(@[[NSNull null], results]);
+                return;
+            } else {
+                callback(@[RCTJSErrorFromNSError(error)]);
+                return;
+            }
+        }];
+    } else {
+        // Fallback on earlier versions
+        callback(@[RCTMakeError(@"error with otherData_getInsulinDeliverySamples", nil, nil)]);
+    }
 }
 
 - (void)otherData_getNumberOfTimesFallenSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
@@ -175,39 +180,44 @@
         ascending:NO
     ];
 
-    HKCategoryType *type = [HKCategoryType categoryTypeForIdentifier: HKCategoryTypeIdentifierToothbrushingEvent];
-    NSPredicate *predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
-
-    HKSampleQuery *query = [[HKSampleQuery alloc]
-        initWithSampleType:type
-        predicate:predicate
-        limit: limit
-        sortDescriptors:@[timeSortDescriptor]
-        resultsHandler:^(HKSampleQuery *query, NSArray *results, NSError *error) {
-
+    if (@available(iOS 13.0, *)) {
+        HKCategoryType *type = [HKCategoryType categoryTypeForIdentifier: HKCategoryTypeIdentifierToothbrushingEvent];
+        NSPredicate *predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
+        
+        HKSampleQuery *query = [[HKSampleQuery alloc]
+                                initWithSampleType:type
+                                predicate:predicate
+                                limit: limit
+                                sortDescriptors:@[timeSortDescriptor]
+                                resultsHandler:^(HKSampleQuery *query, NSArray *results, NSError *error) {
+            
             if (error != nil) {
-            NSLog(@"error with fetchCumulativeSumStatisticsCollection: %@", error);
-            callback(@[RCTMakeError(@"error with fetchCumulativeSumStatisticsCollection", error, nil)]);
-            return;
+                NSLog(@"error with fetchCumulativeSumStatisticsCollection: %@", error);
+                callback(@[RCTMakeError(@"error with fetchCumulativeSumStatisticsCollection", error, nil)]);
+                return;
             }
             NSMutableArray *data = [NSMutableArray arrayWithCapacity:(10)];
-
+            
             for (HKQuantitySample *sample in results) {
-            NSLog(@"sample for mindfulsession %@", sample);
-            NSString *startDateString = [RCTAppleHealthKit buildISO8601StringFromDate:sample.startDate];
-            NSString *endDateString = [RCTAppleHealthKit buildISO8601StringFromDate:sample.endDate];
-
-            NSDictionary *elem = @{
+                NSLog(@"sample for mindfulsession %@", sample);
+                NSString *startDateString = [RCTAppleHealthKit buildISO8601StringFromDate:sample.startDate];
+                NSString *endDateString = [RCTAppleHealthKit buildISO8601StringFromDate:sample.endDate];
+                
+                NSDictionary *elem = @{
                     @"startDate" : startDateString,
                     @"endDate" : endDateString,
-            };
-
-            [data addObject:elem];
+                };
+                
+                [data addObject:elem];
+            }
+            callback(@[[NSNull null], data]);
         }
-        callback(@[[NSNull null], data]);
-     }
-    ];
-    [self.healthStore executeQuery:query];
+                                ];
+        [self.healthStore executeQuery:query];
+    } else {
+        // Fallback on earlier versions
+        callback(@[RCTMakeError(@"error with fetchCumulativeSumStatisticsCollection", [NSNull null], nil)]);
+    }
 }
 
 - (void)otherData_getUVExposureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {

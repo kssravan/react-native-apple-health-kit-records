@@ -103,101 +103,116 @@
 }
 
 - (void)heart_getHeartRateVariabilitySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback{
-    HKQuantityType *hrvType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRateVariabilitySDNN];
-
-    HKUnit *unit = [HKUnit secondUnit];
-    NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
-    BOOL ascending = [RCTAppleHealthKit boolFromOptions:input key:@"ascending" withDefault:false];
-    NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
-    NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
-    if(startDate == nil){
-        callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
-        return;
-    }
-    NSPredicate * predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
-
-    [self fetchQuantitySamplesOfType:hrvType
-                                unit:unit
-                           predicate:predicate
-                           ascending:ascending
-                               limit:limit
-                          completion:^(NSArray *results, NSError *error) {
-        if(results){
-            callback(@[[NSNull null], results]);
-            return;
-        } else {
-            NSLog(@"error getting heart rate variability samples: %@", error);
-            callback(@[RCTJSErrorFromNSError(error)]);
+    if (@available(iOS 11.0, *)) {
+        HKQuantityType *hrvType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRateVariabilitySDNN];
+        
+        HKUnit *unit = [HKUnit secondUnit];
+        NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
+        BOOL ascending = [RCTAppleHealthKit boolFromOptions:input key:@"ascending" withDefault:false];
+        NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
+        NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
+        if(startDate == nil){
+            callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
             return;
         }
-    }];
+        NSPredicate * predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
+        
+        [self fetchQuantitySamplesOfType:hrvType
+                                    unit:unit
+                               predicate:predicate
+                               ascending:ascending
+                                   limit:limit
+                              completion:^(NSArray *results, NSError *error) {
+            if(results){
+                callback(@[[NSNull null], results]);
+                return;
+            } else {
+                NSLog(@"error getting heart rate variability samples: %@", error);
+                callback(@[RCTJSErrorFromNSError(error)]);
+                return;
+            }
+        }];
+    } else {
+        // Fallback on earlier versions
+        callback(@[RCTMakeError(@"error getting heart rate variability samples:", nil, nil)]);
+    }
 }
 
 - (void)heart_getRestingHeartRateSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback{
-    HKQuantityType *restingHeartRateType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierRestingHeartRate];
-
-    HKUnit *count = [HKUnit countUnit];
-    HKUnit *minute = [HKUnit minuteUnit];
-
-    HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"unit" withDefault:[count unitDividedByUnit:minute]];
-    NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
-    BOOL ascending = [RCTAppleHealthKit boolFromOptions:input key:@"ascending" withDefault:false];
-    NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
-    NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
-    if(startDate == nil){
-        callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
-        return;
+    if (@available(iOS 11.0, *)) {
+        HKQuantityType *restingHeartRateType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierRestingHeartRate];
+        
+        HKUnit *count = [HKUnit countUnit];
+        HKUnit *minute = [HKUnit minuteUnit];
+        
+        HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"unit" withDefault:[count unitDividedByUnit:minute]];
+        NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
+        BOOL ascending = [RCTAppleHealthKit boolFromOptions:input key:@"ascending" withDefault:false];
+        NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
+        NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
+        if(startDate == nil){
+            callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
+            return;
+        }
+        NSPredicate * predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
+        
+        [self fetchQuantitySamplesOfType:restingHeartRateType
+                                    unit:unit
+                               predicate:predicate
+                               ascending:ascending
+                                   limit:limit
+                              completion:^(NSArray *results, NSError *error) {
+            if(results){
+                callback(@[[NSNull null], results]);
+                return;
+            } else {
+                callback(@[RCTJSErrorFromNSError(error)]);
+                return;
+            }
+        }];
+    } else {
+        // Fallback on earlier versions
+        callback(@[RCTMakeError(@"error getting heart_getRestingHeartRateSamples:", nil, nil)]);
     }
-    NSPredicate * predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
-
-    [self fetchQuantitySamplesOfType:restingHeartRateType
-                                unit:unit
-                           predicate:predicate
-                           ascending:ascending
-                               limit:limit
-                          completion:^(NSArray *results, NSError *error) {
-                              if(results){
-                                  callback(@[[NSNull null], results]);
-                                  return;
-                              } else {
-                                  callback(@[RCTJSErrorFromNSError(error)]);
-                                  return;
-                              }
-                          }];
 }
 
 - (void)heart_getWalkingHeartRateAverageSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback {
     
-    HKQuantityType *restingHeartRateType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierWalkingHeartRateAverage];
-
-    HKUnit *count = [HKUnit countUnit];
-    HKUnit *minute = [HKUnit minuteUnit];
-
-    HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"unit" withDefault:[count unitDividedByUnit:minute]];
-    NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
-    BOOL ascending = [RCTAppleHealthKit boolFromOptions:input key:@"ascending" withDefault:false];
-    NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
-    NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
-    if(startDate == nil){
-        callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
-        return;
+    if (@available(iOS 11.0, *)) {
+        HKQuantityType *restingHeartRateType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierWalkingHeartRateAverage];
+        
+        HKUnit *count = [HKUnit countUnit];
+        HKUnit *minute = [HKUnit minuteUnit];
+        
+        HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"unit" withDefault:[count unitDividedByUnit:minute]];
+        NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
+        BOOL ascending = [RCTAppleHealthKit boolFromOptions:input key:@"ascending" withDefault:false];
+        NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
+        NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
+        if(startDate == nil){
+            callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
+            return;
+        }
+        NSPredicate * predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
+        
+        [self fetchQuantitySamplesOfType:restingHeartRateType
+                                    unit:unit
+                               predicate:predicate
+                               ascending:ascending
+                                   limit:limit
+                              completion:^(NSArray *results, NSError *error) {
+            if(results){
+                callback(@[[NSNull null], results]);
+                return;
+            } else {
+                callback(@[RCTJSErrorFromNSError(error)]);
+                return;
+            }
+        }];
+    } else {
+        // Fallback on earlier versions
+        callback(@[RCTMakeError(@"error getting heart_getWalkingHeartRateAverageSamples:", nil, nil)]);
     }
-    NSPredicate * predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
-
-    [self fetchQuantitySamplesOfType:restingHeartRateType
-                                unit:unit
-                           predicate:predicate
-                           ascending:ascending
-                               limit:limit
-                          completion:^(NSArray *results, NSError *error) {
-                              if(results){
-                                  callback(@[[NSNull null], results]);
-                                  return;
-                              } else {
-                                  callback(@[RCTJSErrorFromNSError(error)]);
-                                  return;
-                              }
-                          }];
 }
 
 

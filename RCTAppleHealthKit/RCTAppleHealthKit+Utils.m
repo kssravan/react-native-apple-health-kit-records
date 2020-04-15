@@ -134,7 +134,11 @@
     } else if ([type isEqual:@"Cycling"]){
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceCycling];
     } else if ([type isEqual:@"Swimming"]){
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceSwimming];
+        if (@available(iOS 10.0, *)) {
+            return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceSwimming];
+        } else {
+            // Fallback on earlier versions
+        }
     }
     // default [type isEqual:@"Workout"])
     return [HKObjectType workoutType];

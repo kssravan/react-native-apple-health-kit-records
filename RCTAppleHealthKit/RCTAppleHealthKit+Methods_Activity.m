@@ -188,23 +188,28 @@
            return;
        }
        
-       HKQuantityType *quantityType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceSwimming];
-       
-       [self fetchCumulativeSumStatisticsCollection:quantityType
-                                               unit:unit
-                                             period:period
-                                          startDate:startDate
-                                            endDate:endDate
-                                          ascending:ascending
-                                              limit:limit
-                               includeManuallyAdded:includeManuallyAdded
-                                         completion:^(NSArray *arr, NSError *err){
-           if (err != nil) {
-               callback(@[RCTJSErrorFromNSError(err)]);
-               return;
-           }
-           callback(@[[NSNull null], arr]);
-       }];
+    if (@available(iOS 10.0, *)) {
+        HKQuantityType *quantityType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceSwimming];
+        
+        [self fetchCumulativeSumStatisticsCollection:quantityType
+                                                unit:unit
+                                              period:period
+                                           startDate:startDate
+                                             endDate:endDate
+                                           ascending:ascending
+                                               limit:limit
+                                includeManuallyAdded:includeManuallyAdded
+                                          completion:^(NSArray *arr, NSError *err){
+            if (err != nil) {
+                callback(@[RCTJSErrorFromNSError(err)]);
+                return;
+            }
+            callback(@[[NSNull null], arr]);
+        }];
+    } else {
+        // Fallback on earlier versions
+        callback(@[RCTMakeError(@"error with fetchCumulativeSumStatisticsCollection", [NSNull null], nil)]);
+    }
     
 }
 
