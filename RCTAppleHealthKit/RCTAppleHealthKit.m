@@ -368,7 +368,7 @@ RCT_EXPORT_METHOD(getClinicalVitalRecords:(NSDictionary *)input callback:(RCTRes
 RCT_EXPORT_METHOD(getAuthorizationOfParamType:(NSString *)type callback:(RCTResponseSenderBlock)callback)
 {
     HKObjectType *val = [self getReadPermFromText:type];
-    NSString *status = [self getAuthorizationStatusString:[self.healthStore authorizationStatusForType:val];
+    NSString *status = [self getAuthorizationStatusString:[self.healthStore authorizationStatusForType:val]];
     callback(@[RCTMakeError(status, nil, nil)]);
 }
 // End Health Records
@@ -395,9 +395,10 @@ RCT_EXPORT_METHOD(getAuthorizationOfParamType:(NSString *)type callback:(RCTResp
         NSDictionary* permissions =[input objectForKey:@"permissions"];
         if(permissions != nil){
             NSArray* readPermsArray = [permissions objectForKey:@"read"];
-            // NSArray* writePermsArray = [permissions objectForKey:@"write"];
+            NSArray* writePermsArray = [permissions objectForKey:@"write"];
             NSSet* readPerms = [self getReadPermsFromOptions:readPermsArray];
-            NSSet* writePerms = [self getWritePermsFromOptions:readPermsArray];
+            NSSet* writePerms = [self getWritePermsFromOptions:writePermsArray];
+
 
             if(readPerms != nil) {
                 readDataTypes = readPerms;
