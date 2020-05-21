@@ -395,9 +395,9 @@ RCT_EXPORT_METHOD(getAuthorizationOfParamType:(NSString *)type callback:(RCTResp
         NSDictionary* permissions =[input objectForKey:@"permissions"];
         if(permissions != nil){
             NSArray* readPermsArray = [permissions objectForKey:@"read"];
-            NSArray* writePermsArray = [permissions objectForKey:@"write"];
+            // NSArray* writePermsArray = [permissions objectForKey:@"write"];
             NSSet* readPerms = [self getReadPermsFromOptions:readPermsArray];
-            NSSet* writePerms = [self getWritePermsFromOptions:writePermsArray];
+            NSSet* writePerms = [self getWritePermsFromOptions:readPermsArray];
 
             if(readPerms != nil) {
                 readDataTypes = readPerms;
