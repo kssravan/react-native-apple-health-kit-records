@@ -369,7 +369,7 @@ RCT_EXPORT_METHOD(getAuthorizationOfParamType:(NSString *)type callback:(RCTResp
 {
     HKObjectType *val = [self getReadPermFromText:type];
     NSString *status = [self getAuthorizationStatusString:[self.healthStore authorizationStatusForType:objectType]];
-    return status
+    callback(@[RCTMakeError(status, nil, nil)]);
 }
 // End Health Records
 
