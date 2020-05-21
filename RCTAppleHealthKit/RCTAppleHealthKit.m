@@ -368,7 +368,7 @@ RCT_EXPORT_METHOD(getClinicalVitalRecords:(NSDictionary *)input callback:(RCTRes
 RCT_EXPORT_METHOD(getAuthorizationOfParamType:(NSString *)type callback:(RCTResponseSenderBlock)callback)
 {
     HKObjectType *val = [self getReadPermFromText:type];
-    NSString *status = [self getAuthorizationStatusString:[self.healthStore authorizationStatusForType:objectType]];
+    NSString *status = [self getAuthorizationStatusString:[self.healthStore authorizationStatusForType:val];
     callback(@[RCTMakeError(status, nil, nil)]);
 }
 // End Health Records
